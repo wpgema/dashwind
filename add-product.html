@@ -1,0 +1,275 @@
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Add New Product - Responsive View</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4f46e5",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                        "card-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100;
+            }
+        }
+
+        .sidebar-item-active {
+            @apply bg-indigo-600/10 text-indigo-500 dark:text-indigo-400 border-r-4 border-indigo-600;
+        }
+
+        #sidebar-toggle:checked~aside {
+            @apply translate-x-0;
+        }
+
+        #sidebar-toggle:checked~.overlay {
+            @apply block;
+        }
+
+        .form-input-indigo {
+            @apply w-full rounded-lg border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-indigo-600 focus:ring-indigo-600 transition-colors;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen">
+    <input class="hidden peer" id="sidebar-toggle" type="checkbox" />
+    <label class="overlay fixed inset-0 bg-black/50 z-40 hidden lg:hidden" for="sidebar-toggle"></label>
+    <aside
+        class="fixed inset-y-0 left-0 w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 transition-transform duration-300 -translate-x-full lg:translate-x-0 z-50 flex flex-col">
+        <div class="h-16 flex items-center justify-between px-6 border-b border-slate-200 dark:border-slate-800">
+            <div class="flex items-center gap-2">
+                <div class="size-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+                    <span class="material-symbols-outlined text-white text-xl">inventory_2</span>
+                </div>
+                <span class="font-bold text-xl tracking-tight">Console</span>
+            </div>
+            <label class="lg:hidden p-2 text-slate-500" for="sidebar-toggle">
+                <span class="material-symbols-outlined">close</span>
+            </label>
+        </div>
+        <nav class="flex-1 py-6 space-y-1">
+            <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                href="#">
+                <span class="material-symbols-outlined">grid_view</span>
+                <span class="font-medium text-sm">Dashboard</span>
+            </a>
+            <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                href="#">
+                <span class="material-symbols-outlined">analytics</span>
+                <span class="font-medium text-sm">Insights</span>
+            </a>
+            <a class="flex items-center gap-3 px-6 py-3 sidebar-item-active" href="#">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">shopping_bag</span>
+                <span class="font-medium text-sm">Products</span>
+            </a>
+            <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                href="#">
+                <span class="material-symbols-outlined">group</span>
+                <span class="font-medium text-sm">Customers</span>
+            </a>
+            <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                href="#">
+                <span class="material-symbols-outlined">settings</span>
+                <span class="font-medium text-sm">Settings</span>
+            </a>
+        </nav>
+        <div class="p-4 border-t border-slate-200 dark:border-slate-800">
+            <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl">
+                <p class="text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-wider">Storage Usage</p>
+                <div class="h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                    <div class="h-full bg-indigo-600 w-2/3"></div>
+                </div>
+                <p class="text-[10px] mt-2 text-slate-500 font-medium">6.2GB of 10GB used</p>
+            </div>
+        </div>
+    </aside>
+    <div class="lg:ml-64 flex flex-col min-h-screen">
+        <header
+            class="h-auto min-h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-30 px-4 md:px-8 py-3 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <button
+                    class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg flex items-center gap-1 transition-colors">
+                    <span class="material-symbols-outlined text-xl">arrow_back</span>
+                </button>
+                <div>
+                    <h1 class="text-lg font-bold text-slate-900 dark:text-white">Add New Product</h1>
+                    <nav class="hidden sm:flex items-center gap-2 text-xs text-slate-500">
+                        <a class="hover:text-indigo-600" href="#">Products</a>
+                        <span class="material-symbols-outlined text-[10px]">chevron_right</span>
+                        <span class="font-medium text-slate-900 dark:text-slate-100">Add Product</span>
+                    </nav>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <label
+                    class="lg:hidden p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg cursor-pointer"
+                    for="sidebar-toggle">
+                    <span class="material-symbols-outlined">menu</span>
+                </label>
+                <div class="hidden sm:flex items-center gap-3">
+                    <button
+                        class="px-4 py-2 text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Cancel</button>
+                    <button
+                        class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors">Save
+                        Product</button>
+                </div>
+            </div>
+        </header>
+        <main class="p-4 md:p-8 space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-2 space-y-6">
+                    <section
+                        class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 space-y-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="material-symbols-outlined text-indigo-600">info</span>
+                            <h2 class="font-bold text-lg">General Information</h2>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="space-y-2">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300"
+                                    for="prod-name">Product Name</label>
+                                <input class="form-input-indigo" id="prod-name"
+                                    placeholder="e.g. Wireless Noise Cancelling Headphones" type="text" />
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300"
+                                    for="prod-desc">Description</label>
+                                <textarea class="form-input-indigo min-h-[150px] resize-none" id="prod-desc"
+                                    placeholder="Describe your product highlights and features..."></textarea>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300"
+                                    for="prod-category">Category</label>
+                                <select class="form-input-indigo" id="prod-category">
+                                    <option value="">Select a category</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="fashion">Fashion</option>
+                                    <option value="home">Home &amp; Living</option>
+                                    <option value="sports">Sports &amp; Outdoors</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+                    <section
+                        class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 space-y-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="material-symbols-outlined text-indigo-600">image</span>
+                            <h2 class="font-bold text-lg">Media</h2>
+                        </div>
+                        <div
+                            class="border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-xl p-12 text-center hover:border-indigo-500 dark:hover:border-indigo-500 transition-colors cursor-pointer bg-slate-50/50 dark:bg-slate-800/20">
+                            <span class="material-symbols-outlined text-4xl text-slate-400 mb-4">cloud_upload</span>
+                            <p class="text-sm font-semibold text-slate-900 dark:text-white">Click or drag images here
+                                to upload</p>
+                            <p class="text-xs text-slate-500 mt-2">PNG, JPG, or WEBP up to 5MB</p>
+                        </div>
+                        <div class="grid grid-cols-4 sm:grid-cols-6 gap-4">
+                            <div
+                                class="aspect-square rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-400">
+                                <span class="material-symbols-outlined">add</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="lg:col-span-1 space-y-6">
+                    <section
+                        class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 space-y-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="material-symbols-outlined text-indigo-600">payments</span>
+                            <h2 class="font-bold text-lg">Pricing &amp; Inventory</h2>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300"
+                                    for="prod-price">Price ($)</label>
+                                <input class="form-input-indigo" id="prod-price" placeholder="0.00"
+                                    type="number" />
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300"
+                                    for="prod-cost">Cost ($)</label>
+                                <input class="form-input-indigo" id="prod-cost" placeholder="0.00" type="number" />
+                            </div>
+                            <div class="space-y-2 col-span-2">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300"
+                                    for="prod-sku">SKU</label>
+                                <input class="form-input-indigo" id="prod-sku" placeholder="ABC-12345-001"
+                                    type="text" />
+                            </div>
+                            <div class="space-y-2 col-span-2">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300"
+                                    for="prod-stock">Initial Stock</label>
+                                <input class="form-input-indigo" id="prod-stock" placeholder="0" type="number" />
+                            </div>
+                        </div>
+                    </section>
+                    <section
+                        class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 space-y-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="material-symbols-outlined text-indigo-600">sell</span>
+                            <h2 class="font-bold text-lg">Organization</h2>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="space-y-2">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300"
+                                    for="prod-tags">Tags</label>
+                                <input class="form-input-indigo" id="prod-tags" placeholder="e.g. bluetooth, gadgets"
+                                    type="text" />
+                                <p class="text-[10px] text-slate-500">Separate tags with commas</p>
+                            </div>
+                            <div
+                                class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
+                                <div>
+                                    <p class="text-sm font-bold">Product Status</p>
+                                    <p class="text-xs text-slate-500">Set to active to list publicly</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input class="sr-only peer" type="checkbox" />
+                                    <div
+                                        class="w-11 h-6 bg-slate-200 peer-focus:outline-none dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="sm:hidden grid grid-cols-2 gap-3 pt-4">
+                        <button
+                            class="px-4 py-3 rounded-xl text-sm font-bold text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 transition-colors">Cancel</button>
+                        <button
+                            class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-3 rounded-xl text-sm font-bold transition-colors">Save
+                            Product</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>

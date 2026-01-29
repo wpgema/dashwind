@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Customer Management - Responsive View</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4f46e5",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                        "card-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100;
+            }
+        }
+
+        .sidebar-item-active {
+            @apply bg-indigo-600/10 text-indigo-500 dark:text-indigo-400 border-r-4 border-indigo-600;
+        }
+
+        #sidebar-toggle:checked~aside {
+            @apply translate-x-0;
+        }
+
+        #sidebar-toggle:checked~.overlay {
+            @apply block;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen">
+    <input class="hidden peer" id="sidebar-toggle" type="checkbox" />
+    <label class="overlay fixed inset-0 bg-black/50 z-40 hidden lg:hidden" for="sidebar-toggle"></label>
+    <aside
+        class="fixed inset-y-0 left-0 w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 transition-transform duration-300 -translate-x-full lg:translate-x-0 z-50 flex flex-col">
+        <div class="h-16 flex items-center justify-between px-6 border-b border-slate-200 dark:border-slate-800">
+            <div class="flex items-center gap-2">
+                <div class="size-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+                    <span class="material-symbols-outlined text-white text-xl">shield</span>
+                </div>
+                <span class="font-bold text-xl tracking-tight">Console</span>
+            </div>
+            <label class="lg:hidden p-2 text-slate-500" for="sidebar-toggle">
+                <span class="material-symbols-outlined">close</span>
+            </label>
+        </div>
+        <nav class="flex-1 py-6 space-y-1">
+            <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                href="#">
+                <span class="material-symbols-outlined">grid_view</span>
+                <span class="font-medium text-sm">Dashboard</span>
+            </a>
+            <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                href="#">
+                <span class="material-symbols-outlined">analytics</span>
+                <span class="font-medium text-sm">Insights</span>
+            </a>
+            <a class="flex items-center gap-3 px-6 py-3 sidebar-item-active" href="#">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">group</span>
+                <span class="font-medium text-sm">Customers</span>
+            </a>
+            <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                href="#">
+                <span class="material-symbols-outlined">settings</span>
+                <span class="font-medium text-sm">Settings</span>
+            </a>
+        </nav>
+        <div class="p-4 border-t border-slate-200 dark:border-slate-800">
+            <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl">
+                <p class="text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-wider">Plan Usage</p>
+                <div class="h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                    <div class="h-full bg-indigo-600 w-3/4"></div>
+                </div>
+                <p class="text-[10px] mt-2 text-slate-500 font-medium">75% of Monthly Quota</p>
+            </div>
+        </div>
+    </aside>
+    <div class="lg:ml-64 flex flex-col min-h-screen">
+        <header
+            class="h-auto min-h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-30 px-4 md:px-8 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <label
+                    class="lg:hidden p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg cursor-pointer"
+                    for="sidebar-toggle">
+                    <span class="material-symbols-outlined">menu</span>
+                </label>
+                <div>
+                    <h1 class="text-xl font-bold text-slate-900 dark:text-white">Customers</h1>
+                    <nav class="hidden sm:flex items-center gap-2 text-xs text-slate-500">
+                        <a class="hover:text-indigo-600" href="#">Dashboard</a>
+                        <span class="material-symbols-outlined text-[10px]">chevron_right</span>
+                        <span class="font-medium text-slate-900 dark:text-slate-100">Customers</span>
+                    </nav>
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <div class="relative flex-1 sm:w-64">
+                    <span
+                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+                    <input
+                        class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-lg py-2 pl-9 pr-4 text-sm focus:ring-1 focus:ring-indigo-600"
+                        placeholder="Search by name or email..." type="text" />
+                </div>
+                <button
+                    class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 transition-colors">
+                    <span class="material-symbols-outlined text-lg">add</span>
+                    Add Customer
+                </button>
+            </div>
+        </header>
+        <main class="p-4 md:p-8">
+            <div
+                class="hidden md:block bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+                <table class="w-full text-left">
+                    <thead class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+                        <tr>
+                            <th class="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-wider">Profile</th>
+                            <th class="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-wider">Email</th>
+                            <th class="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-wider">Status</th>
+                            <th class="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-wider text-right">
+                                Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                        <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <img alt="User"
+                                        class="size-10 rounded-full object-cover ring-2 ring-indigo-600/10"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4ogefKVKvaxRDC1hGEIFl7yqDG-hU_VJDfTzwVtGffVUUKc1LV5toncVqleN9SxSl32yCZxiFWabDHxeccz7_eQl3BJQIAkxCT6NjDspmxcHF11rR7b83HZWkq8vID2D_nit-CPgL08oImPWPUrpPs-esMfSD6FuKmL-5xehwac_eUjxAbgPx6Z7FYW9M4oxifYQTZ0mpTfpYZbRIvC73ne-XymqVroww4QTbuDaE1UCRAI3p_RZy2_1PJ7P94x7-kDu7NOPl1i8" />
+                                    <div>
+                                        <p class="font-semibold text-sm">Alex Thompson</p>
+                                        <p class="text-xs text-slate-500">Joined Jan 2024</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-slate-500">alex.t@example.com</td>
+                            <td class="px-6 py-4">
+                                <span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400">
+                                    Active
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-right">
+                                <div class="flex justify-end gap-2">
+                                    <button class="p-1.5 text-slate-400 hover:text-indigo-600 transition-colors">
+                                        <span class="material-symbols-outlined text-lg">edit</span>
+                                    </button>
+                                    <button class="p-1.5 text-slate-400 hover:text-red-500 transition-colors">
+                                        <span class="material-symbols-outlined text-lg">delete</span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="size-10 rounded-full bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center text-indigo-600 font-bold text-sm">
+                                        SR</div>
+                                    <div>
+                                        <p class="font-semibold text-sm">Sarah Raines</p>
+                                        <p class="text-xs text-slate-500">Joined Feb 2024</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-slate-500">s.raines@company.com</td>
+                            <td class="px-6 py-4">
+                                <span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-400">
+                                    Inactive
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-right">
+                                <div class="flex justify-end gap-2">
+                                    <button class="p-1.5 text-slate-400 hover:text-indigo-600 transition-colors">
+                                        <span class="material-symbols-outlined text-lg">edit</span>
+                                    </button>
+                                    <button class="p-1.5 text-slate-400 hover:text-red-500 transition-colors">
+                                        <span class="material-symbols-outlined text-lg">delete</span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <img alt="User"
+                                        class="size-10 rounded-full object-cover ring-2 ring-indigo-600/10"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAOrZezXofyOZKtvGe--b79_zxpC6Du5XUPT-KpsL81uYu4dsygiL7q9lOoAUJiC6WZRB0BhRV4mPU-BUVMpQzoh4LVx5ikphQX7Lqq_WSVNtU_rNfsvIJK5uUHi1kDNV8TAazYUz_l9LaOMklgZuJyhxoZLC9gUJQmtAZ86Jm-LknDO2L3aX8LHZIyxjsEmHaEWuwEwTDyVj2s1X2urKEKuUhoM8cs6mwk9KWOcOdPgwxGlnxaiW-aWoU0Hi-5vojf4I_imqmTNU" />
+                                    <div>
+                                        <p class="font-semibold text-sm">Mark Wilson</p>
+                                        <p class="text-xs text-slate-500">Joined Mar 2024</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-slate-500">m.wilson@web.dev</td>
+                            <td class="px-6 py-4">
+                                <span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400">
+                                    Active
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-right">
+                                <div class="flex justify-end gap-2">
+                                    <button class="p-1.5 text-slate-400 hover:text-indigo-600 transition-colors">
+                                        <span class="material-symbols-outlined text-lg">edit</span>
+                                    </button>
+                                    <button class="p-1.5 text-slate-400 hover:text-red-500 transition-colors">
+                                        <span class="material-symbols-outlined text-lg">delete</span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="p-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                    <p class="text-xs text-slate-500 font-medium">Showing 1-3 of 24 customers</p>
+                    <div class="flex gap-2">
+                        <button
+                            class="px-3 py-1 text-xs border border-slate-200 dark:border-slate-800 rounded hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Previous</button>
+                        <button
+                            class="px-3 py-1 text-xs border border-slate-200 dark:border-slate-800 rounded hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Next</button>
+                    </div>
+                </div>
+            </div>
+            <div class="md:hidden space-y-4">
+                <div
+                    class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <img alt="User" class="size-12 rounded-full ring-2 ring-indigo-600/10"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4ogefKVKvaxRDC1hGEIFl7yqDG-hU_VJDfTzwVtGffVUUKc1LV5toncVqleN9SxSl32yCZxiFWabDHxeccz7_eQl3BJQIAkxCT6NjDspmxcHF11rR7b83HZWkq8vID2D_nit-CPgL08oImPWPUrpPs-esMfSD6FuKmL-5xehwac_eUjxAbgPx6Z7FYW9M4oxifYQTZ0mpTfpYZbRIvC73ne-XymqVroww4QTbuDaE1UCRAI3p_RZy2_1PJ7P94x7-kDu7NOPl1i8" />
+                            <div>
+                                <h3 class="font-bold">Alex Thompson</h3>
+                                <p class="text-xs text-slate-500">alex.t@example.com</p>
+                            </div>
+                        </div>
+                        <span
+                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400">
+                            Active
+                        </span>
+                    </div>
+                    <div class="flex gap-2 pt-4 border-t border-slate-100 dark:border-slate-800">
+                        <button
+                            class="flex-1 flex items-center justify-center gap-2 py-2 text-xs font-semibold bg-slate-50 dark:bg-slate-800 rounded-lg hover:text-indigo-600">
+                            <span class="material-symbols-outlined text-base">edit</span>
+                            Edit
+                        </button>
+                        <button
+                            class="flex-1 flex items-center justify-center gap-2 py-2 text-xs font-semibold bg-slate-50 dark:bg-slate-800 rounded-lg hover:text-red-500">
+                            <span class="material-symbols-outlined text-base">delete</span>
+                            Delete
+                        </button>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="size-12 rounded-full bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center text-indigo-600 font-bold">
+                                SR</div>
+                            <div>
+                                <h3 class="font-bold">Sarah Raines</h3>
+                                <p class="text-xs text-slate-500">s.raines@company.com</p>
+                            </div>
+                        </div>
+                        <span
+                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-400">
+                            Inactive
+                        </span>
+                    </div>
+                    <div class="flex gap-2 pt-4 border-t border-slate-100 dark:border-slate-800">
+                        <button
+                            class="flex-1 flex items-center justify-center gap-2 py-2 text-xs font-semibold bg-slate-50 dark:bg-slate-800 rounded-lg hover:text-indigo-600">
+                            <span class="material-symbols-outlined text-base">edit</span>
+                            Edit
+                        </button>
+                        <button
+                            class="flex-1 flex items-center justify-center gap-2 py-2 text-xs font-semibold bg-slate-50 dark:bg-slate-800 rounded-lg hover:text-red-500">
+                            <span class="material-symbols-outlined text-base">delete</span>
+                            Delete
+                        </button>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <img alt="User" class="size-12 rounded-full ring-2 ring-indigo-600/10"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP1ukSWxkajR84vELUZscu_FI_ht3Q-unL-s433mynZWNa5XhmLP0CIenA6piirWtLMmUKsp9qkJ6-O0BCNXav6i5wFjhOztWyEkZ-dO5YEN5MiQ2tvpVvbcSeDLHjbYsbckultiWgTi4CfYMzfwOERN_lAgRoYxqCYQb69s3ozzXTo3b2ZP5nWMQi4GPW0AbV4ybT-puRhOkpiPyD3RhqJyVpCUKFDtITbPW1VbH_a70RxEetj6F4NJstXTdL2yAOzOq_Z9_fjd0" />
+                            <div>
+                                <h3 class="font-bold">Mark Wilson</h3>
+                                <p class="text-xs text-slate-500">m.wilson@web.dev</p>
+                            </div>
+                        </div>
+                        <span
+                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400">
+                            Active
+                        </span>
+                    </div>
+                    <div class="flex gap-2 pt-4 border-t border-slate-100 dark:border-slate-800">
+                        <button
+                            class="flex-1 flex items-center justify-center gap-2 py-2 text-xs font-semibold bg-slate-50 dark:bg-slate-800 rounded-lg hover:text-indigo-600">
+                            <span class="material-symbols-outlined text-base">edit</span>
+                            Edit
+                        </button>
+                        <button
+                            class="flex-1 flex items-center justify-center gap-2 py-2 text-xs font-semibold bg-slate-50 dark:bg-slate-800 rounded-lg hover:text-red-500">
+                            <span class="material-symbols-outlined text-base">delete</span>
+                            Delete
+                        </button>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center py-4">
+                    <button class="text-sm font-semibold text-indigo-600">View All 24 Customers</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <button
+        class="fixed right-6 bottom-6 md:right-8 md:bottom-8 size-14 bg-indigo-600 text-white rounded-full shadow-2xl shadow-indigo-600/40 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform z-40 sm:hidden">
+        <span class="material-symbols-outlined text-2xl">add</span>
+    </button>
+
+</body>
+
+</html>
