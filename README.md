@@ -35,4 +35,6 @@ This project is licensed under the MIT License - see the [license](license) file
 
 ## Author
 
-**wpgema**
+**M. Gema Maulana**
+
+Web Developer

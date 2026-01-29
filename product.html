@@ -141,6 +141,10 @@
                         class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-lg py-2 pl-9 pr-4 text-sm focus:ring-1 focus:ring-indigo-600"
                         placeholder="Search by name, category, or SKU..." type="text" />
                 </div>
+                <button class="p-2 text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
+                    <span class="material-symbols-outlined block dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+                </button>
                 <button
                     class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 transition-colors">
                     <span class="material-symbols-outlined text-lg">add</span>
@@ -417,6 +421,23 @@
         <span class="material-symbols-outlined text-2xl">add</span>
     </button>
 
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Initialize theme based on localStorage
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
 </body>
 
 </html>
