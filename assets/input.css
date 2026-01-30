@@ -44,3 +44,9 @@ details[open] summary .material-symbols-outlined.arrow {
 .card-container {
     @apply bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm;
 }
+
+@layer components {
+    .form-input-indigo {
+        @apply w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-2.5 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 transition-colors placeholder:text-slate-400 text-slate-700 dark:text-slate-200;
+    }
+}

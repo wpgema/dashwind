@@ -16,7 +16,7 @@
 		<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden">
 			<div class="p-8">
 				<div class="flex items-center gap-3 mb-6">
-					<div class="size-10 rounded-lg flex items-center justify-center brand-gradient text-white">
+					<div class="size-10 rounded-lg flex items-center justify-center brand-gradient bg-indigo-600 text-white">
 						<span class="material-symbols-outlined">inventory</span>
 					</div>
                     <h1 class="text-2xl font-bold">Login - Console</h1>
@@ -25,13 +25,13 @@
 					<div>
 						<label class="sr-only">Email</label>
 						<input name="email" type="email" required
-							class="w-full px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border-none text-sm focus:ring-1 focus:ring-indigo-600"
+							class="form-input-indigo"
 							placeholder="you@example.com" />
 					</div>
 					<div>
 						<label class="sr-only">Password</label>
 						<input name="password" type="password" required
-							class="mt-2 w-full px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border-none text-sm focus:ring-1 focus:ring-indigo-600"
+							class="form-input-indigo mt-2"
 							placeholder="••••••••" />
 					</div>
 					<div class="flex items-center justify-between text-xs">
@@ -45,7 +45,7 @@
 						<button type="submit"
 							class="w-full bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-semibold flex items-center justify-center gap-2">
 							<span class="material-symbols-outlined text-lg">lock</span>
-							Sign In
+							<a href="index.html">Sign In</a>
 						</button>
 					</div>
 				</form>
