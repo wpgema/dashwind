@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Create New Order - Unified View</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4f46e5", // Indigo-600
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a", // Slate-950/900 style
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <!-- Theme handling moved to assets/theme.js -->
+    <script src="assets/theme.js"></script>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+    <div class="relative min-h-screen flex flex-col">
+        <header
+            class="sticky top-0 z-50 flex items-center bg-white/80 dark:bg-slate-900/80 backdrop-blur-md p-4 h-16 border-b border-slate-200 dark:border-slate-800">
+            <div class="flex items-center gap-4 w-full max-w-7xl mx-auto">
+                <button class="lg:hidden text-slate-500">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+                <div class="flex items-center gap-2">
+                    <div class="bg-primary py-1.5 px-2.5 rounded-lg">
+                        <span class="material-symbols-outlined text-white text-xl">shopping_cart_checkout</span>
+                    </div>
+                    <h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">Create
+                        Order</h2>
+                </div>
+                <div class="ml-auto hidden sm:flex items-center gap-3">
+                    <span class="text-xs font-medium text-slate-400">DRAFT #ORD-2023</span>
+                    <button
+                        class="text-primary text-sm font-bold px-4 py-2 hover:bg-primary/5 rounded-lg transition-colors">SAVE
+                        DRAFT</button>
+                    <button class="p-2 text-slate-500 hover:text-indigo-600 transition-colors" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
+                        <span class="material-symbols-outlined block dark:hidden">dark_mode</span>
+                        <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <main class="flex-1 w-full max-w-7xl mx-auto p-4 md:p-6 lg:p-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 space-y-8">
+                    <section
+                        class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <div class="flex items-center gap-2 mb-6">
+                            <span class="material-symbols-outlined text-primary">person_search</span>
+                            <h3 class="text-slate-900 dark:text-white text-lg font-bold">Customer Information</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <label class="block">
+                                <span class="text-slate-600 dark:text-slate-400 text-sm font-medium mb-2 block">Search
+                                    or Select Customer</span>
+                                <div class="relative">
+                                    <select
+                                        class="block w-full rounded-xl border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white py-4 px-4 focus:ring-2 focus:ring-primary/20 focus:border-primary appearance-none transition-all">
+                                        <option value="one">Choose a customer...</option>
+                                        <option value="two">John Doe - john@example.com</option>
+                                        <option value="three">Sarah Smith - sarah.s@gmail.com</option>
+                                        <option value="four">Global Tech Inc. (Corporate)</option>
+                                    </select>
+                                    
+                                </div>
+                            </label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div
+                                    class="p-4 rounded-xl border border-dashed border-slate-200 dark:border-slate-800 flex items-center justify-center cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                    <span class="material-symbols-outlined text-primary mr-2">add_circle</span>
+                                    <span class="text-sm font-semibold text-primary">New Customer</span>
+                                </div>
+                                <div
+                                    class="p-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/30 flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-slate-400">location_on</span>
+                                    <span class="text-xs text-slate-500">Shipping address will be loaded after
+                                        selection</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section
+                        class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">inventory_2</span>
+                                <h3 class="text-slate-900 dark:text-white text-lg font-bold">Add Products</h3>
+                            </div>
+                            <span class="text-xs font-medium text-slate-500">1,248 items in stock</span>
+                        </div>
+                        <div class="relative mb-6">
+                            <div
+                                class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400">
+                                <span class="material-symbols-outlined">search</span>
+                            </div>
+                            <input
+                                class="block w-full pl-11 pr-12 py-4 rounded-xl border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary placeholder:text-slate-400"
+                                placeholder="Search by name, category or SKU..." type="text" />
+                            <button
+                                class="absolute inset-y-0 right-0 flex items-center px-4 text-slate-400 hover:text-primary">
+                                <span class="material-symbols-outlined">filter_list</span>
+                            </button>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div
+                                class="flex items-center gap-4 p-4 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-100 dark:border-slate-800 group hover:border-primary/50 transition-all">
+                                <div
+                                    class="size-20 rounded-xl bg-white dark:bg-slate-800 flex items-center justify-center overflow-hidden shrink-0 border border-slate-200 dark:border-slate-700">
+                                    <img alt="Classic Watch" class="object-cover w-full h-full"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_WlMH41UPlG43m0GjfN5tRJT8lLI6tHh5XqH4Qka5n3JDKtu_zoAloe5V4F19rcKr7u4rSUEkRg2BvjBVV2bksmMIA0-9TNuI6bQxMgMucppu0UOssHRQyjW5c5rnADowAm2WMNPFI7RUVRj3iRLEFv6CGpYMwrN4XB69rlX7mEMr95nckhGlaEw-Lp1hJ30VMKNOd2KnTlVwowmboRLEuz2Gn5dga7Yr2jsoA8Xe2aVFKEaasEFWvF4oVgIem9OV6ijHQu-AqQ4" />
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="text-slate-900 dark:text-white font-bold truncate">Classic Watch</h4>
+                                    <p class="text-slate-500 text-xs mb-2">SKU: CW-001 • 12 In stock</p>
+                                    <p class="text-primary font-bold">$120.00</p>
+                                </div>
+                                <button
+                                    class="bg-primary text-white size-10 rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 hover:scale-105 transition-transform active:scale-95">
+                                    <span class="material-symbols-outlined">add</span>
+                                </button>
+                            </div>
+                            <div
+                                class="flex items-center gap-4 p-4 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-100 dark:border-slate-800 group hover:border-primary/50 transition-all">
+                                <div
+                                    class="size-20 rounded-xl bg-white dark:bg-slate-800 flex items-center justify-center overflow-hidden shrink-0 border border-slate-200 dark:border-slate-700">
+                                    <img alt="Shoes" class="object-cover w-full h-full"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvzYoTCACWiDRyJAe6IxCjPljIq25TDY1GH0W84jQO4EDEa5w1PKT1-iJal--2JBV99igtRwA_eXwCHxEYnlFkE8gPC94wXKCDkR1kHau14I3jTmWs2twJr2xToTkVnAR14fypejiHM2EOo4lFd3wL6THCqqjzGUlxpq39IFgOnpzYTCgZ-V_xOW1OcQvUK27ifz8VFLZ2G7Zu-9mijYgTTtZPKKvVt0FJepTBS8wAJnVf-CYH1q9h3Sgu0QQwC8g2PUkTQUFqQ9A" />
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="text-slate-900 dark:text-white font-bold truncate">Sports Sneakers</h4>
+                                    <p class="text-slate-500 text-xs mb-2">SKU: SN-099 • 4 In stock</p>
+                                    <p class="text-primary font-bold">$89.00</p>
+                                </div>
+                                <button
+                                    class="bg-primary text-white size-10 rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 hover:scale-105 transition-transform active:scale-95">
+                                    <span class="material-symbols-outlined">add</span>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="lg:col-span-1">
+                    <div class="sidebar-sticky space-y-6">
+                        <section
+                            class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+                            <div
+                                class="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/20">
+                                <h3 class="text-slate-900 dark:text-white font-bold">Order Items (2)</h3>
+                                <button class="text-xs font-bold text-rose-500 hover:underline">Clear All</button>
+                            </div>
+                            <div class="p-4 space-y-4 max-h-[400px] overflow-y-auto">
+                                <div
+                                    class="p-4 bg-slate-50 dark:bg-slate-950 rounded-xl border border-slate-100 dark:border-slate-800">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div class="flex gap-3">
+                                            <div
+                                                class="size-10 rounded-lg bg-white dark:bg-slate-800 overflow-hidden border border-slate-200 dark:border-slate-700">
+                                                <img alt="Backpack" class="object-cover w-full h-full"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZlohK7z8dVQ_MWvrzbFlHGRMzT7ZyT4TC8hbJuA7IvZVVkW8c4P8Mer1dPaOcmPoyC7KDntHt6cMQpu4G-748x-gTOpZqu2XJeem8qaLk9_PUMLG_d90FKyvn5pVVrqAFZ_2uZxBVhJjggWgIUyL-nE52YPm49FmLQDzBqC2VB8mWUsOummBOxU3PjYgufeJh8Q8_A9Lbr9A4ZYpSr3UmC-B_LFGklg6qUF20zlvP6jzzEYgn0A4XrSWXuSw7V7-9zfatQ3-Gwjg" />
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-900 dark:text-white text-sm">Leather
+                                                    Backpack</h4>
+                                                <p
+                                                    class="text-[10px] uppercase tracking-wider text-slate-500 font-bold">
+                                                    $85.00 / unit</p>
+                                            </div>
+                                        </div>
+                                        <button class="text-slate-400 hover:text-rose-500 transition-colors">
+                                            <span class="material-symbols-outlined text-xl">close</span>
+                                        </button>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <div
+                                            class="flex items-center gap-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 px-2 py-1">
+                                            <button
+                                                class="size-6 rounded bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-white">
+                                                <span class="material-symbols-outlined text-sm">remove</span>
+                                            </button>
+                                            <span class="font-bold text-sm min-w-[20px] text-center">1</span>
+                                            <button
+                                                class="size-6 rounded bg-primary flex items-center justify-center text-white">
+                                                <span class="material-symbols-outlined text-sm">add</span>
+                                            </button>
+                                        </div>
+                                        <p class="font-bold text-slate-900 dark:text-white">$85.00</p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="p-4 bg-slate-50 dark:bg-slate-950 rounded-xl border border-slate-100 dark:border-slate-800">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div class="flex gap-3">
+                                            <div
+                                                class="size-10 rounded-lg bg-white dark:bg-slate-800 overflow-hidden border border-slate-200 dark:border-slate-700">
+                                                <img alt="Headphones" class="object-cover w-full h-full"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkce-UJ1VPofzEqRLbnU9fdJPlZi96vfQ6nzcX72ue78OmDrhhme3TZGgnxO-yukBavOPTEwy4Uwz5b_MZwvyhzkpAY3LaW2LqP1Zg2K-8g4Lrf7vpciW38w0gVeFNfaSzalezhHvDSK5ucgwOhDCcCqnqvlbd0ipYPSL0qKAm_BLtXaGRt8JtK3TvNr2o484BMv8mfah3GKAFyK2Vejku2-nXk_rD5qcqzmdSRjHQb8Dv_V4ruDAPf44ss5olmQH0q8HANGLcxyo" />
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-900 dark:text-white text-sm">Wireless
+                                                    Headphones</h4>
+                                                <p
+                                                    class="text-[10px] uppercase tracking-wider text-slate-500 font-bold">
+                                                    $210.00 / unit</p>
+                                            </div>
+                                        </div>
+                                        <button class="text-slate-400 hover:text-rose-500 transition-colors">
+                                            <span class="material-symbols-outlined text-xl">close</span>
+                                        </button>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <div
+                                            class="flex items-center gap-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 px-2 py-1">
+                                            <button
+                                                class="size-6 rounded bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-white">
+                                                <span class="material-symbols-outlined text-sm">remove</span>
+                                            </button>
+                                            <span class="font-bold text-sm min-w-[20px] text-center">2</span>
+                                            <button
+                                                class="size-6 rounded bg-primary flex items-center justify-center text-white">
+                                                <span class="material-symbols-outlined text-sm">add</span>
+                                            </button>
+                                        </div>
+                                        <p class="font-bold text-slate-900 dark:text-white">$420.00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section
+                            class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+                            <h3 class="text-slate-900 dark:text-white font-bold mb-4">Payment Method</h3>
+                            <div class="grid grid-cols-3 gap-2">
+                                <button
+                                    class="flex flex-col items-center justify-center p-3 rounded-xl border-2 border-primary bg-primary/5 text-primary">
+                                    <span class="material-symbols-outlined mb-1">credit_card</span>
+                                    <span class="text-[10px] font-bold uppercase">Card</span>
+                                </button>
+                                <button
+                                    class="flex flex-col items-center justify-center p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-500 hover:border-slate-400 dark:hover:border-slate-600 transition-colors">
+                                    <span class="material-symbols-outlined mb-1">account_balance</span>
+                                    <span class="text-[10px] font-bold uppercase">Bank</span>
+                                </button>
+                                <button
+                                    class="flex flex-col items-center justify-center p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-500 hover:border-slate-400 dark:hover:border-slate-600 transition-colors">
+                                    <span class="material-symbols-outlined mb-1">payments</span>
+                                    <span class="text-[10px] font-bold uppercase">Cash</span>
+                                </button>
+                            </div>
+                        </section>
+                        <section
+                            class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-lg">
+                            <div class="space-y-3 mb-6">
+                                <div class="flex justify-between text-slate-500 text-sm">
+                                    <span>Subtotal</span>
+                                    <span class="font-medium text-slate-900 dark:text-white">$505.00</span>
+                                </div>
+                                <div class="flex justify-between text-slate-500 text-sm">
+                                    <span>Tax (10%)</span>
+                                    <span class="font-medium text-slate-900 dark:text-white">$50.50</span>
+                                </div>
+                                <div class="flex justify-between text-slate-500 text-sm">
+                                    <span>Shipping</span>
+                                    <span class="font-bold text-primary">$15.00</span>
+                                </div>
+                                <div
+                                    class="pt-3 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                                    <span class="text-slate-900 dark:text-white font-bold">Total Amount</span>
+                                    <span class="text-primary text-2xl font-black">$570.50</span>
+                                </div>
+                            </div>
+                            <button
+                                class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 px-6 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+                                <span class="material-symbols-outlined">verified_user</span>
+                                <span>Confirm &amp; Create Order</span>
+                            </button>
+                            <p class="text-center text-[10px] text-slate-400 mt-4">By confirming, you agree to our
+                                Terms of Service</p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Site footer -->
+        <footer class="mt-8 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 text-sm text-slate-500 dark:text-slate-400 py-4">
+            <div class="max-w-7xl mx-auto px-4 md:px-8 text-center">
+                <p>© 2026 Console. All rights reserved. · <a href="#" class="text-indigo-600 hover:underline">Privacy</a> · <a href="#" class="text-indigo-600 hover:underline">Terms</a></p>
+            </div>
+        </footer>
+
+      
+    </div>
+
+</body>
+
+</html>

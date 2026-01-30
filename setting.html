@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Settings - Console</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4f46e5",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                        "card-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100;
+            }
+        }
+
+        .sidebar-item-active {
+            @apply bg-indigo-600/10 text-indigo-500 dark:text-indigo-400 border-r-4 border-indigo-600;
+        }
+    </style>
+    <style>
+        // Theme handling moved to assets/theme.js
+    </script>
+    <script src="assets/theme.js"></script>
+                </div>
+                <span class="font-bold text-xl tracking-tight">Console</span>
+            </div>
+            <label class="lg:hidden p-2 text-slate-500" for="sidebar-toggle">
+                <span class="material-symbols-outlined">close</span>
+            </label>
+        </div>
+        <nav class="flex-1 py-6 space-y-1">
+            <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="index.html">
+                <span class="material-symbols-outlined">grid_view</span>
+                <span class="font-medium text-sm">Dashboard</span>
+            </a>
+            <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="order-management.html">
+                <span class="material-symbols-outlined">shopping_cart</span>
+                <span class="font-medium text-sm">Orders</span>
+            </a>
+            <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="product.html">
+                <span class="material-symbols-outlined">inventory</span>
+                <span class="font-medium text-sm">Products</span>
+            </a>
+            <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="report.html">
+                <span class="material-symbols-outlined">analytics</span>
+                <span class="font-medium text-sm">Reports</span>
+            </a>
+            <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="insight.html">
+                <span class="material-symbols-outlined">bar_chart</span>
+                <span class="font-medium text-sm">Insight</span>
+            </a>
+            <a class="flex items-center gap-3 px-6 py-3 sidebar-item-active" href="setting.html">
+                <span class="material-symbols-outlined">settings</span>
+                <span class="font-medium text-sm">Settings</span>
+            </a>
+        </nav>
+        <div class="p-4 border-t border-slate-200 dark:border-slate-800">
+            <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl">
+                <p class="text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-wider">Storage</p>
+                <div class="h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                    <div class="h-full bg-indigo-600 w-3/4"></div>
+                </div>
+                <p class="text-[10px] mt-2 text-slate-500 font-medium">7.5GB / 10GB Used</p>
+            </div>
+        </div>
+    </aside>
+
+    <div class="lg:ml-64 flex flex-col min-h-screen">
+        <header
+            class="h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-30 px-4 md:px-8 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <label
+                    class="lg:hidden p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg cursor-pointer"
+                    for="sidebar-toggle">
+                    <span class="material-symbols-outlined">menu</span>
+                </label>
+                <h1 class="text-lg font-bold">Settings</h1>
+            </div>
+            <div class="flex items-center gap-3">
+                <button class="p-2 text-slate-500 hover:text-indigo-600 transition-colors" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
+                    <span class="material-symbols-outlined block dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+                </button>
+                <div class="size-8 rounded-full overflow-hidden">
+                    <img alt="Profile" class="w-full h-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4ogefKVKvaxRDC1hGEIFl7yqDG-hU_VJDfTzwVtGffVUUKc1LV5toncVqleN9SxSl32yCZxiFWabDHxeccz7_eQl3BJQIAkxCT6NjDspmxcHF11rR7b83HZWkq8vID2D_nit-CPgL08oImPWPUrpPs-esMfSD6FuKmL-5xehwac_eUjxAbgPx6Z7FYW9M4oxifYQTZ0mpTfpYZbRIvC73ne-XymqVroww4QTbuDaE1UCRAI3p_RZy2_1PJ7P94x7-kDu7NOPl1i8" />
+                </div>
+            </div>
+        </header>
+
+        <main class="p-4 md:p-8 flex-1">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <aside class="lg:col-span-1 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4">
+                    <nav class="space-y-2">
+                        <button class="w-full text-left px-3 py-2 rounded-md bg-indigo-50 dark:bg-slate-800/50 text-indigo-600 font-semibold">Profile</button>
+                        <button class="w-full text-left px-3 py-2 rounded-md hover:bg-slate-50 dark:hover:bg-slate-800">Appearance</button>
+                        <button class="w-full text-left px-3 py-2 rounded-md hover:bg-slate-50 dark:hover:bg-slate-800">Notifications</button>
+                        <button class="w-full text-left px-3 py-2 rounded-md hover:bg-slate-50 dark:hover:bg-slate-800">Security</button>
+                        <button class="w-full text-left px-3 py-2 rounded-md hover:bg-slate-50 dark:hover:bg-slate-800 text-red-600">Danger Zone</button>
+                    </nav>
+                </aside>
+
+                <section class="lg:col-span-2 space-y-6">
+                    <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
+                        <h2 class="text-lg font-bold mb-2">Profile</h2>
+                        <p class="text-sm text-slate-500 mb-4">Manage your personal information</p>
+                        <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-xs font-medium text-slate-500">Full name</label>
+                                <input class="mt-2 w-full px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border-none text-sm focus:ring-1 focus:ring-indigo-600" value="Alex Johnson" />
+                            </div>
+                            <div>
+                                <label class="text-xs font-medium text-slate-500">Email</label>
+                                <input class="mt-2 w-full px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border-none text-sm focus:ring-1 focus:ring-indigo-600" value="alex@example.com" />
+                            </div>
+                            <div class="md:col-span-2 flex items-center gap-4">
+                                <div class="size-14 rounded-lg overflow-hidden">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4ogefKVKvaxRDC1hGEIFl7yqDG-hU_VJDfTzwVtGffVUUKc1LV5toncVqleN9SxSl32yCZxiFWabDHxeccz7_eQl3BJQIAkxCT6NjDspmxcHF11rR7b83HZWkq8vID2D_nit-CPgL08oImPWPUrpPs-esMfSD6FuKmL-5xehwac_eUjxAbgPx6Z7FYW9M4oxifYQTZ0mpTfpYZbRIvC73ne-XymqVroww4QTbuDaE1UCRAI3p_RZy2_1PJ7P94x7-kDu7NOPl1i8" alt="avatar" class="w-full h-full object-cover" />
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold">Profile Picture</p>
+                                    <p class="text-xs text-slate-500">Recommended size 256x256px</p>
+                                    <div class="mt-3 flex gap-2">
+                                        <button class="px-3 py-1.5 rounded-md bg-indigo-600 text-white text-sm">Upload</button>
+                                        <button class="px-3 py-1.5 rounded-md border border-slate-200 dark:border-slate-800 text-sm">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
+                        <h2 class="text-lg font-bold mb-2">Appearance</h2>
+                        <p class="text-sm text-slate-500 mb-4">Toggle theme and UI preferences</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="font-medium">Dark Mode</p>
+                                <p class="text-xs text-slate-500">Enable dark theme across the app</p>
+                            </div>
+                            <div>
+                                <button id="theme-toggle" onclick="toggleTheme()" class="inline-flex items-center px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-800">
+                                    <span class="material-symbols-outlined text-sm">dark_mode</span>
+                                    <span class="ml-2 text-xs">Toggle</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
+                        <h2 class="text-lg font-bold mb-2">Notifications</h2>
+                        <p class="text-sm text-slate-500 mb-4">Control which notifications you receive</p>
+                        <div class="space-y-3">
+                            <label class="flex items-center justify-between gap-4">
+                                <div>
+                                    <p class="font-medium">Email notifications</p>
+                                    <p class="text-xs text-slate-500">Order updates and newsletters</p>
+                                </div>
+                                <input type="checkbox" class="h-5 w-9 rounded-full accent-indigo-600" checked />
+                            </label>
+                            <label class="flex items-center justify-between gap-4">
+                                <div>
+                                    <p class="font-medium">Push notifications</p>
+                                    <p class="text-xs text-slate-500">Realtime alerts in browser</p>
+                                </div>
+                                <input type="checkbox" class="h-5 w-9 rounded-full accent-indigo-600" />
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
+                        <h2 class="text-lg font-bold mb-2">Security</h2>
+                        <p class="text-sm text-slate-500 mb-4">Update password and 2FA settings</p>
+                        <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-xs font-medium text-slate-500">Current password</label>
+                                <input type="password" class="mt-2 w-full px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border-none text-sm focus:ring-1 focus:ring-indigo-600" />
+                            </div>
+                            <div>
+                                <label class="text-xs font-medium text-slate-500">New password</label>
+                                <input type="password" class="mt-2 w-full px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border-none text-sm focus:ring-1 focus:ring-indigo-600" />
+                            </div>
+                            <div class="md:col-span-2 flex gap-2">
+                                <button class="px-4 py-2 bg-indigo-600 text-white rounded-lg">Update Password</button>
+                                <button class="px-4 py-2 border border-slate-200 dark:border-slate-800 rounded-lg">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer class="mt-auto bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 text-sm text-slate-500 dark:text-slate-400 py-4">
+            <div class="max-w-7xl mx-auto px-4 md:px-8 text-center">
+                <p>© 2026 Console. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Theme handling moved to assets/theme.js -->
+    <script src="assets/theme.js"></script>
+</body>
+
+</html>

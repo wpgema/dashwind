@@ -366,20 +366,7 @@
             </footer>
         </div>
 
-    <script>
-            const theme = localStorage.getItem('theme');
-
-            if (theme === 'dark') {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-
-            function toggleTheme() {
-                const html = document.documentElement;
-                const isDark = html.classList.toggle('dark');
-                localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            }
-        </script>
+    <!-- Theme handling moved to assets/theme.js -->
+    <script src="assets/theme.js"></script>
     </body>
 </html>

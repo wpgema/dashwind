@@ -1,25 +1,13 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <style>
-        body {
-            min-height: max(884px, 100dvh);
-        }
-    </style>
-</head>
-
-<body class="min-h-screen">
-
-
-
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Product Management - Responsive View</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -49,6 +37,18 @@
             @apply bg-indigo-600/10 text-indigo-500 dark:text-indigo-400 border-r-4 border-indigo-600;
         }
 
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            @apply bg-slate-200 dark:bg-slate-700 rounded-full;
+        }
+
         #sidebar-toggle:checked~aside {
             @apply translate-x-0;
         }
@@ -62,8 +62,8 @@
             min-height: max(884px, 100dvh);
         }
     </style>
-
-
+</head>
+<body class="min-h-screen">
     <input class="hidden peer" id="sidebar-toggle" type="checkbox" />
     <label class="overlay fixed inset-0 bg-black/50 z-40 hidden lg:hidden" for="sidebar-toggle"></label>
     <aside
@@ -154,7 +154,7 @@
                     <span class="material-symbols-outlined block dark:hidden">dark_mode</span>
                     <span class="material-symbols-outlined hidden dark:block">light_mode</span>
                 </button>
-                <a href="add-product.html"
+                <a href="create-product.html"
                     class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 transition-colors">
                     <span class="material-symbols-outlined text-lg">add</span>
                     Add Product
@@ -444,21 +444,8 @@
         <span class="material-symbols-outlined text-2xl">add</span>
     </button>
 
-    <script>
-        const theme = localStorage.getItem('theme');
-
-        if (theme === 'dark') {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-
-        function toggleTheme() {
-            const html = document.documentElement;
-            const isDark = html.classList.toggle('dark');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        }
-    </script>
+    <!-- Theme handling moved to assets/theme.js -->
+    <script src="assets/theme.js"></script>
 </body>
 
 </html>
