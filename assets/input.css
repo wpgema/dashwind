@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+    body {
+        @apply font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100;
+    }
+}
+
+.sidebar-item-active {
+    @apply bg-indigo-600/10 text-indigo-500 dark:text-indigo-400 border-r-4 border-indigo-600;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-slate-200 dark:bg-slate-700 rounded-full;
+}
+
+#sidebar-toggle:checked~aside {
+    @apply translate-x-0;
+}
+
+#sidebar-toggle:checked~.overlay {
+    @apply block;
+}
+
+/* Pages dropdown arrow: default point right; when open point down */
+details summary .material-symbols-outlined.arrow {
+    transition: transform .18s ease-in-out;
+    transform: rotate(-90deg); /* down -> right */
+}
+
+details[open] summary .material-symbols-outlined.arrow {
+    transform: rotate(0deg); /* down */
+}
+
+.card-container {
+    @apply bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm;
+}

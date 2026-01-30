@@ -4,70 +4,12 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Reports &amp; Analytics - Responsive View</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#4f46e5",
-                        "background-light": "#f8fafc",
-                        "background-dark": "#0f172a",
-                        "card-dark": "#1e293b",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                },
-            },
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer base {
-            body {
-                @apply font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100;
-            }
-        }
-
-        .sidebar-item-active {
-            @apply bg-indigo-600/10 text-indigo-500 dark:text-indigo-400 border-r-4 border-indigo-600;
-        }
-
-        #sidebar-toggle:checked~aside {
-            @apply translate-x-0;
-        }
-
-        #sidebar-toggle:checked~.overlay {
-            @apply block;
-        }
-
-        .card-container {
-            @apply bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden;
-        }
-
-        .sparkline-bar {
-            @apply w-1 bg-indigo-500/40 rounded-full;
-        }
-
-        .sparkline-bar-active {
-            @apply bg-indigo-600;
-        }
-    </style>
-    <style>
-        body {
-            min-height: max(884px, 100dvh);
-        }
-    </style>
-    <style>
-        body {
-            min-height: max(884px, 100dvh);
-        }
-    </style>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    
+    <!-- Theme handling moved to assets/theme.js -->
+    <script src="assets/theme.js"></script>
 </head>
 
 <body class="min-h-screen">
@@ -144,8 +86,8 @@
             </div>
             <div class="flex items-center gap-2">
                 <button class="p-2 text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
-                    <span class="material-symbols-outlined block dark:hidden">dark_mode</span>
-                    <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+                    <span class="material-symbols-outlined !block dark:!hidden">dark_mode</span>
+                    <span class="material-symbols-outlined !hidden dark:!block">light_mode</span>
                 </button>
                 <button class="p-2 text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
                     <span class="material-symbols-outlined">search</span>
@@ -289,7 +231,7 @@
                             <span>Sun</span>
                         </div>
                         <div
-                            class="absolute left-0 h-full flex flex-col justify-between text-[10px] text-slate-400 pr-2">
+                            class="absolute left-0 h-full flex flex-col justify-between text-[10px] text-slate-400 px-2">
                             <span>$50k</span>
                             <span>$25k</span>
                             <span>$0</span>
@@ -425,8 +367,6 @@
         </footer>
     </div>
 
-    <!-- Theme handling moved to assets/theme.js -->
-    <script src="assets/theme.js"></script>
 </body>
 
 </html>
