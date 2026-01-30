@@ -1,383 +1,385 @@
-<html class="dark" lang="en">
+<html lang="en">
 
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Order Details - Responsive View</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#4f46e5",
-                        "background-light": "#f8fafc",
-                        "background-dark": "#0f172a",
-                        "card-dark": "#1e293b",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Order Details - Responsive View</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet" />
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            "primary": "#4f46e5",
+                            "background-light": "#f8fafc",
+                            "background-dark": "#0f172a",
+                            "card-dark": "#1e293b",
+                        },
+                        fontFamily: {
+                            "display": ["Inter", "sans-serif"]
+                        },
                     },
                 },
-            },
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer base {
-            body {
-                @apply font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100;
             }
-        }
+        </script>
+        <style type="text/tailwindcss">
+            @layer base {
+                body {
+                    @apply font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100;
+                }
+            }
 
-        .sidebar-item-active {
-            @apply bg-indigo-600/10 text-indigo-500 dark:text-indigo-400 border-r-4 border-indigo-600;
-        }
+            .sidebar-item-active {
+                @apply bg-indigo-600/10 text-indigo-500 dark:text-indigo-400 border-r-4 border-indigo-600;
+            }
 
-        #sidebar-toggle:checked~aside {
-            @apply translate-x-0;
-        }
+            #sidebar-toggle:checked~aside {
+                @apply translate-x-0;
+            }
 
-        #sidebar-toggle:checked~.overlay {
-            @apply block;
-        }
+            #sidebar-toggle:checked~.overlay {
+                @apply block;
+            }
 
-        .status-badge {
-            @apply px-2.5 py-0.5 rounded-full text-xs font-semibold inline-flex items-center;
-        }
+            .status-badge {
+                @apply px-2.5 py-0.5 rounded-full text-xs font-semibold inline-flex items-center;
+            }
 
-        .status-processing {
-            @apply bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400;
-        }
+            .status-processing {
+                @apply bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400;
+            }
 
-        .card-container {
-            @apply bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden;
-        }
-    </style>
-    <style>
-        body {
-            min-height: max(884px, 100dvh);
-        }
-    </style>
-</head>
+            .card-container {
+                @apply bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden;
+            }
+        </style>
+        <style>
+            body {
+                min-height: max(884px, 100dvh);
+            }
+        </style>
+    </head>
 
-<body class="min-h-screen">
-    <input class="hidden peer" id="sidebar-toggle" type="checkbox" />
-    <label class="overlay fixed inset-0 bg-black/50 z-40 hidden lg:hidden" for="sidebar-toggle"></label>
-    <aside
-        class="fixed inset-y-0 left-0 w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 transition-transform duration-300 -translate-x-full lg:translate-x-0 z-50 flex flex-col">
-        <div class="h-16 flex items-center justify-between px-6 border-b border-slate-200 dark:border-slate-800">
-            <div class="flex items-center gap-2">
-                <div class="size-8 bg-indigo-600 rounded-lg flex items-center justify-center">
-                    <span class="material-symbols-outlined text-white text-xl">inventory_2</span>
-                </div>
-                <span class="font-bold text-xl tracking-tight">Console</span>
-            </div>
-            <label class="lg:hidden p-2 text-slate-500" for="sidebar-toggle">
-                <span class="material-symbols-outlined">close</span>
-            </label>
-        </div>
-        <nav class="flex-1 py-6 space-y-1">
-            <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
-                href="index.html">
-                <span class="material-symbols-outlined">grid_view</span>
-                <span class="font-medium text-sm">Dashboard</span>
-            </a>
-            <a class="flex items-center gap-3 px-6 py-3 sidebar-item-active"
-                href="order-management.html">
-                <span class="material-symbols-outlined">shopping_cart</span>
-                <span class="font-medium text-sm">Orders</span>
-            </a>
-            <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
-                href="product.html">
-                <span class="material-symbols-outlined">inventory</span>
-                <span class="font-medium text-sm">Products</span>
-            </a>
-            <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="report.html">
-                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">analytics</span>
-                <span class="font-medium text-sm">Reports</span>
-            </a>
-            <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="insight.html">
-                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">bar_chart</span>
-                <span class="font-medium text-sm">Insight</span>
-            </a>
-            <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="customer.html">
-                <span class="material-symbols-outlined">group</span>
-                <span class="font-medium text-sm">Customers</span>
-            </a>
-            <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
-                href="#">
-                <span class="material-symbols-outlined">settings</span>
-                <span class="font-medium text-sm">Settings</span>
-            </a>
-        </nav>
-        <div class="p-4 border-t border-slate-200 dark:border-slate-800">
-            <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl">
-                <p class="text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-wider">Sync Status</p>
+    <body class="min-h-screen">
+        <input class="hidden peer" id="sidebar-toggle" type="checkbox" />
+        <label class="overlay fixed inset-0 bg-black/50 z-40 hidden lg:hidden" for="sidebar-toggle"></label>
+        <aside
+            class="fixed inset-y-0 left-0 w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 transition-transform duration-300 -translate-x-full lg:translate-x-0 z-50 flex flex-col">
+            <div class="h-16 flex items-center justify-between px-6 border-b border-slate-200 dark:border-slate-800">
                 <div class="flex items-center gap-2">
-                    <div class="size-2 bg-emerald-500 rounded-full animate-pulse"></div>
-                    <p class="text-[10px] text-slate-500 font-medium">Systems Operational</p>
+                    <div class="size-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-xl">shopping_cart</span>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight">Console</span>
                 </div>
-            </div>
-        </div>
-    </aside>
-    <div class="lg:ml-64 flex flex-col min-h-screen">
-        <header
-            class="h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-30 px-4 md:px-8 flex items-center justify-between">
-            <div class="flex items-center gap-4">
-                <label
-                    class="lg:hidden p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg cursor-pointer"
-                    for="sidebar-toggle">
-                    <span class="material-symbols-outlined">menu</span>
+                <label class="lg:hidden p-2 text-slate-500" for="sidebar-toggle">
+                    <span class="material-symbols-outlined">close</span>
                 </label>
-                <h1 class="text-lg md:text-xl font-bold text-slate-900 dark:text-white">Order Details</h1>
             </div>
-            <div class="flex items-center gap-2">
-                <button class="p-2 text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
-                    <span class="material-symbols-outlined block dark:hidden">dark_mode</span>
-                    <span class="material-symbols-outlined hidden dark:block">light_mode</span>
-                </button>
-                <button class="p-2 text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                    <span class="material-symbols-outlined">notifications</span>
-                </button>
-                <div
-                    class="size-8 rounded-full bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center text-indigo-600 dark:text-indigo-400 font-bold text-xs">
-                    JD
+            <nav class="flex-1 py-6 space-y-1">
+                <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                    href="index.html">
+                    <span class="material-symbols-outlined">grid_view</span>
+                    <span class="font-medium text-sm">Dashboard</span>
+                </a>
+                <a class="flex items-center gap-3 px-6 py-3 sidebar-item-active"
+                    href="order-management.html">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span class="font-medium text-sm">Orders</span>
+                </a>
+                <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                    href="product.html">
+                    <span class="material-symbols-outlined">inventory</span>
+                    <span class="font-medium text-sm">Products</span>
+                </a>
+                <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="report.html">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">analytics</span>
+                    <span class="font-medium text-sm">Reports</span>
+                </a>
+                <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="insight.html">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">bar_chart</span>
+                    <span class="font-medium text-sm">Insight</span>
+                </a>
+                <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="customer.html">
+                    <span class="material-symbols-outlined">group</span>
+                    <span class="font-medium text-sm">Customers</span>
+                </a>
+                <a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                    href="#">
+                    <span class="material-symbols-outlined">settings</span>
+                    <span class="font-medium text-sm">Settings</span>
+                </a>
+            </nav>
+            <div class="p-4 border-t border-slate-200 dark:border-slate-800">
+                <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl">
+                    <p class="text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-wider">Sync Status</p>
+                    <div class="flex items-center gap-2">
+                        <div class="size-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                        <p class="text-[10px] text-slate-500 font-medium">Systems Operational</p>
+                    </div>
                 </div>
             </div>
-        </header>
-        <main class="p-4 md:p-8 space-y-6">
-            <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <div class="space-y-1">
-                    <a class="inline-flex items-center gap-1 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline mb-2"
-                        href="order-management.html">
-                        <span class="material-symbols-outlined text-lg">arrow_back</span>
-                        Back to Orders
-                    </a>
-                    <div class="flex flex-wrap items-center gap-3">
-                        <h2 class="text-2xl font-bold">#ORD-7721</h2>
-                        <span class="status-badge status-processing">Processing</span>
-                    </div>
-                    <p class="text-sm text-slate-500">Placed on October 24, 2023 at 02:45 PM</p>
+        </aside>
+        <div class="lg:ml-64 flex flex-col min-h-screen">
+            <header
+                class="h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-30 px-4 md:px-8 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <label
+                        class="lg:hidden p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg cursor-pointer"
+                        for="sidebar-toggle">
+                        <span class="material-symbols-outlined">menu</span>
+                    </label>
+                    <h1 class="text-lg md:text-xl font-bold text-slate-900 dark:text-white">Order Details</h1>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button
-                        class="flex-1 sm:flex-none px-4 py-2 text-sm font-semibold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-lg flex items-center justify-center gap-2 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
-                        <span class="material-symbols-outlined text-xl">print</span>
-                        Print Invoice
+                    <button class="p-2 text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
+                        <span class="material-symbols-outlined block dark:hidden">dark_mode</span>
+                        <span class="material-symbols-outlined hidden dark:block">light_mode</span>
                     </button>
-                    <div class="relative flex-1 sm:flex-none">
-                        <select
-                            class="w-full sm:w-auto appearance-none bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 pr-10 rounded-lg text-sm font-semibold transition-colors cursor-pointer border-none focus:ring-2 focus:ring-indigo-500">
-                            <option>Update Status</option>
-                            <option>Shipped</option>
-                            <option>Delivered</option>
-                            <option>Cancelled</option>
-                        </select>
-                        <span
-                            class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-white pointer-events-none text-xl">expand_more</span>
+                    <button class="p-2 text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                        <span class="material-symbols-outlined">notifications</span>
+                    </button>
+                    <div
+                        class="size-8 rounded-full bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center text-indigo-600 dark:text-indigo-400 font-bold text-xs">
+                        JD
                     </div>
                 </div>
-            </div>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <div class="lg:col-span-2 space-y-6">
-                    <div class="card-container">
-                        <div
-                            class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
-                            <h3 class="font-bold">Order Items</h3>
-                            <span class="text-xs font-bold text-slate-400 uppercase">3 Items</span>
+            </header>
+            <main class="p-4 md:p-8 space-y-6">
+                <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div class="space-y-1">
+                        <a class="inline-flex items-center gap-1 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline mb-2"
+                            href="order-management.html">
+                            <span class="material-symbols-outlined text-lg">arrow_back</span>
+                            Back to Orders
+                        </a>
+                        <div class="flex flex-wrap items-center gap-3">
+                            <h2 class="text-2xl font-bold">#ORD-7721</h2>
+                            <span class="status-badge status-processing">Processing</span>
                         </div>
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-left">
-                                <thead
-                                    class="bg-slate-50/50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
-                                    <tr>
-                                        <th class="px-6 py-3 text-xs font-bold uppercase text-slate-500">Product</th>
-                                        <th class="px-6 py-3 text-xs font-bold uppercase text-slate-500 text-center">Qty
-                                        </th>
-                                        <th class="px-6 py-3 text-xs font-bold uppercase text-slate-500 text-right">
-                                            Price</th>
-                                        <th class="px-6 py-3 text-xs font-bold uppercase text-slate-500 text-right">
-                                            Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                                    <tr>
-                                        <td class="px-6 py-4">
-                                            <div class="flex items-center gap-3">
-                                                <div
-                                                    class="size-12 bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden flex-shrink-0">
-                                                    <img alt="Product" class="w-full h-full object-cover"
-                                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCci0j3f3AXXQfhUPcuOboQYaG5hlxkjm2R7ynEWy5CSmL_Gkl7n8op39E-flqyIFUse0jyr8rJU8rV3xGWsyFAg5nxDd3m3RR5AYjyIWvdCE7VddPn4Fg2NKpCZqqrdDwd04vnUT0xjFo4tbim81nJj_fmChpbd2QdR0HT9NChjBAkBa7QuYtqhKlu62POuIsGEmA02L1rFs2qspWCHusJ7ruoBkNgHJFzsxXWp5rEWN6sIU7vPOQWRlGMEZJa5sXbUq4PNHX1u_M" />
-                                                </div>
-                                                <div>
-                                                    <p class="font-semibold text-sm">Premium Sneaker V2</p>
-                                                    <p class="text-xs text-slate-500">Color: Midnight Blue, Size: 42
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-center font-medium">1</td>
-                                        <td class="px-6 py-4 text-sm text-right">$120.00</td>
-                                        <td class="px-6 py-4 text-sm text-right font-bold">$120.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4">
-                                            <div class="flex items-center gap-3">
-                                                <div
-                                                    class="size-12 bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden flex-shrink-0">
-                                                    <img alt="Product" class="w-full h-full object-cover"
-                                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlShtg3uPftP0AUgqlTgYCFHsMpXKniOarpWTJgYEhyMXg0QrTzxU_vBsEDp9Pbs0HzCqUbCC2028LO84lwk7qMeJpY8u2320Y9nMYznpouhsr0d6ywceiI486ufspDk4XTm_JWLe2q83KLYv4icISw9sbZKSnfcgFpEb1vEi__tbC-Qie38ijsjUvtyrAGCMI41qHzZI2m6HZIoPK0OIcR5KpXtB2_OBk6cYpYspguOxIb_9daY6GHmU5VPryj78XfvYCeXeCHRs" />
-                                                </div>
-                                                <div>
-                                                    <p class="font-semibold text-sm">Smart Minimalist Watch</p>
-                                                    <p class="text-xs text-slate-500">Strap: Leather Black</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-center font-medium">1</td>
-                                        <td class="px-6 py-4 text-sm text-right">$89.00</td>
-                                        <td class="px-6 py-4 text-sm text-right font-bold">$89.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4">
-                                            <div class="flex items-center gap-3">
-                                                <div
-                                                    class="size-12 bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden flex-shrink-0">
-                                                    <img alt="Product" class="w-full h-full object-cover"
-                                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa0abcCKP62GaQi1EbJFADIfCkB0mAAWgaIP2WhN-2zaTY64NqKVhyelxKPWnmjYhAKU8v_t6soVLcYSYltmwxmK2MxvFLLZvYiDrLGLtzjn2FgBF4yMa81hZxz11fZNJzhFLhViAlFNW2wGsurzkNDkDHKXqXVDj9ufow22WbUKUjx5wqjHnhA9QDtOTq7Im5ljccR-POxD6iWYZYeBnw6Ff8USA_QBumEOXBK2GG0WH5CLCdpboEsFNgYkTdVR8Jjqk16lfyNEI" />
-                                                </div>
-                                                <div>
-                                                    <p class="font-semibold text-sm">Noise Cancelling Pro</p>
-                                                    <p class="text-xs text-slate-500">Standard Edition</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-center font-medium">1</td>
-                                        <td class="px-6 py-4 text-sm text-right">$40.00</td>
-                                        <td class="px-6 py-4 text-sm text-right font-bold">$40.00</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        <p class="text-sm text-slate-500">Placed on October 24, 2023 at 02:45 PM</p>
                     </div>
-                    <div class="lg:hidden card-container p-6 space-y-4">
-                        <h3 class="font-bold mb-2">Payment Summary</h3>
-                        <div class="space-y-3">
-                            <div class="flex justify-between text-sm">
-                                <span class="text-slate-500">Subtotal</span>
-                                <span class="font-medium">$249.00</span>
-                            </div>
-                            <div class="flex justify-between text-sm">
-                                <span class="text-slate-500">Shipping Fee</span>
-                                <span class="font-medium">$15.00</span>
-                            </div>
-                            <div class="flex justify-between text-sm">
-                                <span class="text-slate-500">Estimated Tax (5%)</span>
-                                <span class="font-medium">$12.45</span>
-                            </div>
-                            <div
-                                class="pt-3 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
-                                <span class="font-bold">Grand Total</span>
-                                <span class="text-xl font-bold text-indigo-600 dark:text-indigo-400">$276.45</span>
-                            </div>
+                    <div class="flex items-center gap-2">
+                        <button
+                            class="flex-1 sm:flex-none px-4 py-2 text-sm font-semibold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-lg flex items-center justify-center gap-2 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+                            <span class="material-symbols-outlined text-xl">print</span>
+                            Print Invoice
+                        </button>
+                        <div class="relative flex-1 sm:flex-none">
+                            <select
+                                class="w-full sm:w-auto appearance-none bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 pr-10 rounded-lg text-sm font-semibold transition-colors cursor-pointer border-none focus:ring-2 focus:ring-indigo-500">
+                                <option>Update Status</option>
+                                <option>Shipped</option>
+                                <option>Delivered</option>
+                                <option>Cancelled</option>
+                            </select>
+                            <span
+                                class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-white pointer-events-none text-xl">expand_more</span>
                         </div>
                     </div>
                 </div>
-                <div class="space-y-6">
-                    <div class="card-container p-6 space-y-4">
-                        <h3 class="font-bold text-sm uppercase tracking-wider text-slate-500">Customer Info</h3>
-                        <div class="flex items-center gap-3">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-2 space-y-6">
+                        <div class="card-container">
                             <div
-                                class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300">
-                                JM
+                                class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                                <h3 class="font-bold">Order Items</h3>
+                                <span class="text-xs font-bold text-slate-400 uppercase">3 Items</span>
                             </div>
-                            <div>
-                                <p class="font-bold">Jameson Miller</p>
-                                <p class="text-xs text-slate-500">Customer since 2021</p>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left">
+                                    <thead
+                                        class="bg-slate-50/50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+                                        <tr>
+                                            <th class="px-6 py-3 text-xs font-bold uppercase text-slate-500">Product</th>
+                                            <th class="px-6 py-3 text-xs font-bold uppercase text-slate-500 text-center">Qty
+                                            </th>
+                                            <th class="px-6 py-3 text-xs font-bold uppercase text-slate-500 text-right">
+                                                Price</th>
+                                            <th class="px-6 py-3 text-xs font-bold uppercase text-slate-500 text-right">
+                                                Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                                        <tr>
+                                            <td class="px-6 py-4">
+                                                <div class="flex items-center gap-3">
+                                                    <div
+                                                        class="size-12 bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden flex-shrink-0">
+                                                        <img alt="Product" class="w-full h-full object-cover"
+                                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCci0j3f3AXXQfhUPcuOboQYaG5hlxkjm2R7ynEWy5CSmL_Gkl7n8op39E-flqyIFUse0jyr8rJU8rV3xGWsyFAg5nxDd3m3RR5AYjyIWvdCE7VddPn4Fg2NKpCZqqrdDwd04vnUT0xjFo4tbim81nJj_fmChpbd2QdR0HT9NChjBAkBa7QuYtqhKlu62POuIsGEmA02L1rFs2qspWCHusJ7ruoBkNgHJFzsxXWp5rEWN6sIU7vPOQWRlGMEZJa5sXbUq4PNHX1u_M" />
+                                                    </div>
+                                                    <div>
+                                                        <p class="font-semibold text-sm">Premium Sneaker V2</p>
+                                                        <p class="text-xs text-slate-500">Color: Midnight Blue, Size: 42
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 text-sm text-center font-medium">1</td>
+                                            <td class="px-6 py-4 text-sm text-right">$120.00</td>
+                                            <td class="px-6 py-4 text-sm text-right font-bold">$120.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4">
+                                                <div class="flex items-center gap-3">
+                                                    <div
+                                                        class="size-12 bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden flex-shrink-0">
+                                                        <img alt="Product" class="w-full h-full object-cover"
+                                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlShtg3uPftP0AUgqlTgYCFHsMpXKniOarpWTJgYEhyMXg0QrTzxU_vBsEDp9Pbs0HzCqUbCC2028LO84lwk7qMeJpY8u2320Y9nMYznpouhsr0d6ywceiI486ufspDk4XTm_JWLe2q83KLYv4icISw9sbZKSnfcgFpEb1vEi__tbC-Qie38ijsjUvtyrAGCMI41qHzZI2m6HZIoPK0OIcR5KpXtB2_OBk6cYpYspguOxIb_9daY6GHmU5VPryj78XfvYCeXeCHRs" />
+                                                    </div>
+                                                    <div>
+                                                        <p class="font-semibold text-sm">Smart Minimalist Watch</p>
+                                                        <p class="text-xs text-slate-500">Strap: Leather Black</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 text-sm text-center font-medium">1</td>
+                                            <td class="px-6 py-4 text-sm text-right">$89.00</td>
+                                            <td class="px-6 py-4 text-sm text-right font-bold">$89.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4">
+                                                <div class="flex items-center gap-3">
+                                                    <div
+                                                        class="size-12 bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden flex-shrink-0">
+                                                        <img alt="Product" class="w-full h-full object-cover"
+                                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa0abcCKP62GaQi1EbJFADIfCkB0mAAWgaIP2WhN-2zaTY64NqKVhyelxKPWnmjYhAKU8v_t6soVLcYSYltmwxmK2MxvFLLZvYiDrLGLtzjn2FgBF4yMa81hZxz11fZNJzhFLhViAlFNW2wGsurzkNDkDHKXqXVDj9ufow22WbUKUjx5wqjHnhA9QDtOTq7Im5ljccR-POxD6iWYZYeBnw6Ff8USA_QBumEOXBK2GG0WH5CLCdpboEsFNgYkTdVR8Jjqk16lfyNEI" />
+                                                    </div>
+                                                    <div>
+                                                        <p class="font-semibold text-sm">Noise Cancelling Pro</p>
+                                                        <p class="text-xs text-slate-500">Standard Edition</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 text-sm text-center font-medium">1</td>
+                                            <td class="px-6 py-4 text-sm text-right">$40.00</td>
+                                            <td class="px-6 py-4 text-sm text-right font-bold">$40.00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                        <div class="space-y-3 pt-2">
-                            <div class="flex items-center gap-3 text-sm">
-                                <span class="material-symbols-outlined text-slate-400 text-lg">mail</span>
-                                <span class="text-slate-600 dark:text-slate-300">jameson.m@example.com</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-sm">
-                                <span class="material-symbols-outlined text-slate-400 text-lg">call</span>
-                                <span class="text-slate-600 dark:text-slate-300">+1 (555) 012-3456</span>
+                        <div class="lg:hidden card-container p-6 space-y-4">
+                            <h3 class="font-bold mb-2">Payment Summary</h3>
+                            <div class="space-y-3">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-slate-500">Subtotal</span>
+                                    <span class="font-medium">$249.00</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-slate-500">Shipping Fee</span>
+                                    <span class="font-medium">$15.00</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-slate-500">Estimated Tax (5%)</span>
+                                    <span class="font-medium">$12.45</span>
+                                </div>
+                                <div
+                                    class="pt-3 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                                    <span class="font-bold">Grand Total</span>
+                                    <span class="text-xl font-bold text-indigo-600 dark:text-indigo-400">$276.45</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-container p-6 space-y-4">
-                        <h3 class="font-bold text-sm uppercase tracking-wider text-slate-500">Shipping Address</h3>
-                        <div class="space-y-1">
-                            <p class="text-sm font-semibold">Home Office</p>
-                            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                                4521 Oak Street, Suite 300<br />
-                                San Francisco, CA 94107<br />
-                                United States
-                            </p>
-                        </div>
-                        <button class="text-indigo-600 dark:text-indigo-400 text-xs font-bold hover:underline">View on
-                            Map</button>
-                    </div>
-                    <div class="hidden lg:block card-container p-6 space-y-4">
-                        <h3 class="font-bold text-sm uppercase tracking-wider text-slate-500">Payment Summary</h3>
-                        <div class="space-y-3">
-                            <div class="flex justify-between text-sm">
-                                <span class="text-slate-500">Subtotal</span>
-                                <span class="font-medium">$249.00</span>
+                    <div class="space-y-6">
+                        <div class="card-container p-6 space-y-4">
+                            <h3 class="font-bold text-sm uppercase tracking-wider text-slate-500">Customer Info</h3>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300">
+                                    JM
+                                </div>
+                                <div>
+                                    <p class="font-bold">Jameson Miller</p>
+                                    <p class="text-xs text-slate-500">Customer since 2021</p>
+                                </div>
                             </div>
-                            <div class="flex justify-between text-sm">
-                                <span class="text-slate-500">Shipping Fee</span>
-                                <span class="font-medium">$15.00</span>
-                            </div>
-                            <div class="flex justify-between text-sm">
-                                <span class="text-slate-500">Estimated Tax (5%)</span>
-                                <span class="font-medium">$12.45</span>
-                            </div>
-                            <div
-                                class="pt-3 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
-                                <span class="font-bold">Total</span>
-                                <span class="text-xl font-bold text-indigo-600 dark:text-indigo-400">$276.45</span>
+                            <div class="space-y-3 pt-2">
+                                <div class="flex items-center gap-3 text-sm">
+                                    <span class="material-symbols-outlined text-slate-400 text-lg">mail</span>
+                                    <span class="text-slate-600 dark:text-slate-300">jameson.m@example.com</span>
+                                </div>
+                                <div class="flex items-center gap-3 text-sm">
+                                    <span class="material-symbols-outlined text-slate-400 text-lg">call</span>
+                                    <span class="text-slate-600 dark:text-slate-300">+1 (555) 012-3456</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="pt-2">
-                            <div
-                                class="bg-slate-50 dark:bg-slate-800/50 p-3 rounded-lg flex items-center gap-3 border border-slate-100 dark:border-slate-800">
-                                <span
-                                    class="material-symbols-outlined text-indigo-600 dark:text-indigo-400">credit_card</span>
-                                <div class="text-[10px] uppercase font-bold text-slate-500">Paid via Mastercard ••••
-                                    4242</div>
+                        <div class="card-container p-6 space-y-4">
+                            <h3 class="font-bold text-sm uppercase tracking-wider text-slate-500">Shipping Address</h3>
+                            <div class="space-y-1">
+                                <p class="text-sm font-semibold">Home Office</p>
+                                <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                                    4521 Oak Street, Suite 300<br />
+                                    San Francisco, CA 94107<br />
+                                    United States
+                                </p>
+                            </div>
+                            <button class="text-indigo-600 dark:text-indigo-400 text-xs font-bold hover:underline">View on
+                                Map</button>
+                        </div>
+                        <div class="hidden lg:block card-container p-6 space-y-4">
+                            <h3 class="font-bold text-sm uppercase tracking-wider text-slate-500">Payment Summary</h3>
+                            <div class="space-y-3">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-slate-500">Subtotal</span>
+                                    <span class="font-medium">$249.00</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-slate-500">Shipping Fee</span>
+                                    <span class="font-medium">$15.00</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-slate-500">Estimated Tax (5%)</span>
+                                    <span class="font-medium">$12.45</span>
+                                </div>
+                                <div
+                                    class="pt-3 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                                    <span class="font-bold">Total</span>
+                                    <span class="text-xl font-bold text-indigo-600 dark:text-indigo-400">$276.45</span>
+                                </div>
+                            </div>
+                            <div class="pt-2">
+                                <div
+                                    class="bg-slate-50 dark:bg-slate-800/50 p-3 rounded-lg flex items-center gap-3 border border-slate-100 dark:border-slate-800">
+                                    <span
+                                        class="material-symbols-outlined text-indigo-600 dark:text-indigo-400">credit_card</span>
+                                    <div class="text-[10px] uppercase font-bold text-slate-500">Paid via Mastercard ••••
+                                        4242</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </main>
-    </div>
+            </main>
+            <footer class="mt-auto bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 text-sm text-slate-500 dark:text-slate-400 py-4">
+                <div class="max-w-7xl mx-auto px-4 md:px-8 text-center">
+                    <p>© 2026 Console. All rights reserved. · <a href="#" class="text-indigo-600 hover:underline">Privacy</a> · <a href="#" class="text-indigo-600 hover:underline">Terms</a></p>
+                </div>
+            </footer>
+        </div>
 
     <script>
-        function toggleTheme() {
-            const html = document.documentElement;
-            if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
+            const theme = localStorage.getItem('theme');
+
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
             } else {
-                html.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
+                document.documentElement.classList.remove('dark');
             }
-        }
 
-        // Initialize theme based on localStorage
-        if (localStorage.getItem('theme') === 'light') {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>
-</body>
-
+            function toggleTheme() {
+                const html = document.documentElement;
+                const isDark = html.classList.toggle('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            }
+        </script>
+    </body>
 </html>

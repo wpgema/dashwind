@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -74,7 +74,7 @@
         <div class="h-16 flex items-center justify-between px-6 border-b border-slate-200 dark:border-slate-800">
             <div class="flex items-center gap-2">
                 <div class="size-8 bg-indigo-600 rounded-lg flex items-center justify-center">
-                    <span class="material-symbols-outlined text-white text-xl">shield</span>
+                    <span class="material-symbols-outlined text-white text-xl">grid_view</span>
                 </div>
                 <span class="font-bold text-xl tracking-tight">Console</span>
             </div>
@@ -242,7 +242,7 @@
                                 class="px-3 py-1.5 text-xs font-semibold rounded-md text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">Monthly</button>
                         </div>
                     </div>
-                    <div class="h-64 w-full relative">
+                    <div class="h-64 w-full relative pb-3">
                         <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 800 300">
                             <defs>
                                 <linearGradient id="chartGradient" x1="0%" x2="0%" y1="0%"
@@ -266,7 +266,7 @@
                                 stroke="#4f46e5" stroke-linecap="round" stroke-width="3"></path>
                         </svg>
                         <div
-                            class="flex justify-between mt-4 px-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                            class="flex justify-between px-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                             <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
                         </div>
                     </div>
@@ -322,6 +322,11 @@
                 </div>
             </section>
         </main>
+        <footer class="mt-auto bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 text-sm text-slate-500 dark:text-slate-400 py-4">
+            <div class="max-w-7xl mx-auto px-4 md:px-8 text-center">
+                <p>© 2026 Console. All rights reserved. · <a href="#" class="text-indigo-600 hover:underline">Privacy</a> · <a href="#" class="text-indigo-600 hover:underline">Terms</a></p>
+            </div>
+        </footer>
     </div>
     <button
         class="fixed right-6 bottom-6 md:right-8 md:bottom-8 size-14 bg-indigo-600 text-white rounded-full shadow-2xl shadow-indigo-600/40 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform z-40">
@@ -329,20 +334,18 @@
     </button>
 
     <script>
-        function toggleTheme() {
-            const html = document.documentElement;
-            if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            } else {
-                html.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-            }
+        const theme = localStorage.getItem('theme');
+
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
         }
 
-        // Initialize theme based on localStorage
-        if (localStorage.getItem('theme') === 'light') {
-            document.documentElement.classList.remove('dark');
+        function toggleTheme() {
+            const html = document.documentElement;
+            const isDark = html.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
         }
     </script>
 </body>
