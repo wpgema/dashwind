@@ -2,7 +2,7 @@
 
 Modern, responsive admin dashboard template built with HTML5 and Tailwind CSS.
 
-![Dashwind Preview](https://github.com/wpgema/dashwind/assets/images/dashboard.png)
+![Dashwind Preview](assets/images/dashboard.png)
 
 ## Features
 
