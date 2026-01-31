@@ -2,7 +2,11 @@
 
 Modern, responsive admin dashboard template built with HTML5 and Tailwind CSS.
 
-![Dashwind Preview](assets/images/dashboard.png)
+**Light Theme**
+![Dashwind Preview](assets/images/dashboard-light.png)
+
+**Dark Theme**
+![Dashwind Preview](assets/images/dashboard-dark.png)
 
 ## Features
 
