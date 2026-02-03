@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Support Center - Console</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script src="assets/theme.js"></script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+    <input class="hidden peer" id="sidebar-toggle" type="checkbox" />
+    <label class="overlay fixed inset-0 bg-black/50 z-40 hidden lg:hidden" for="sidebar-toggle"></label>
+    <aside class="fixed inset-y-0 left-0 w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 transition-transform duration-300 -translate-x-full z-50 flex flex-col lg:hidden">
+        <div class="h-16 flex items-center justify-between px-6 border-b border-slate-200 dark:border-slate-800">
+            <div class="flex items-center gap-2">
+                <div class="bg-primary py-1 px-2 rounded-lg">
+                    <span class="material-symbols-outlined text-white text-lg">support_agent</span>
+                </div>
+                <span class="font-bold text-lg tracking-tight">Console</span>
+            </div>
+            <label class="p-2 text-slate-500 cursor-pointer" for="sidebar-toggle">
+                <span class="material-symbols-outlined">close</span>
+            </label>
+        </div>
+        <nav class="flex-1 py-6 space-y-1">
+            <a href="index.html" class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-symbols-outlined">home</span>
+                <span class="font-medium text-sm">Home</span>
+            </a>
+            <a href="about.html" class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-symbols-outlined">info</span>
+                <span class="font-medium text-sm">About</span>
+            </a>
+            <a href="product-list.html" class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-symbols-outlined">grid_view</span>
+                <span class="font-medium text-sm">Products</span>
+            </a>
+            <a href="service.html" class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-symbols-outlined">design_services</span>
+                <span class="font-medium text-sm">Services</span>
+            </a>
+            <a href="support.html" class="flex items-center gap-3 px-6 py-3 text-primary bg-slate-50 dark:bg-slate-800 rounded-lg transition-colors">
+                <span class="material-symbols-outlined">help</span>
+                <span class="font-medium text-sm">Support</span>
+            </a>
+            <a href="contact.html" class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-symbols-outlined">mail</span>
+                <span class="font-medium text-sm">Contact</span>
+            </a>
+        </nav>
+    </aside>
+
+    <div class="relative min-h-screen flex flex-col">
+        <header class="sticky top-0 z-50 flex items-center bg-white/80 dark:bg-slate-900/80 backdrop-blur-md p-4 h-16 border-b border-slate-200 dark:border-slate-800">
+            <div class="flex items-center justify-between gap-4 w-full max-w-7xl mx-auto">
+                <div class="flex items-center gap-4">
+                    <label class="lg:hidden text-slate-500 cursor-pointer" for="sidebar-toggle">
+                        <span class="material-symbols-outlined">menu</span>
+                    </label>
+                    <div class="flex items-center gap-2">
+                        <div class="bg-primary py-1.5 px-2.5 rounded-lg">
+                            <span class="material-symbols-outlined text-white text-xl">help</span>
+                        </div>
+                        <h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">Support Center</h2>
+                    </div>
+                </div>
+                <nav class="hidden lg:block gap-2 ml-auto mr-4">
+                    <div class="flex items-center gap-2">
+                        <a href="index.html" class="flex items-center gap-2 px-3 py-2 text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">home</span>
+                            <span>Home</span>
+                        </a>
+                        <a href="about.html" class="flex items-center gap-2 px-3 py-2 text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">info</span>
+                            <span>About</span>
+                        </a>
+                        <a href="product-list.html" class="flex items-center gap-2 px-3 py-2 text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">grid_view</span>
+                            <span>Products</span>
+                        </a>
+                        <a href="service.html" class="flex items-center gap-2 px-3 py-2 text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">design_services</span>
+                            <span>Services</span>
+                        </a>
+                        <a href="support.html" class="flex items-center gap-2 px-3 py-2 text-sm font-bold text-primary rounded-lg bg-slate-50 dark:bg-slate-800 transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">help</span>
+                            <span>Support</span>
+                        </a>
+                        <a href="contact.html" class="flex items-center gap-2 px-3 py-2 text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">mail</span>
+                            <span>Contact</span>
+                        </a>
+                    </div>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <button class="p-2 text-slate-500 hover:text-indigo-600 transition-colors" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
+                        <span class="material-symbols-outlined !block dark:!hidden">dark_mode</span>
+                        <span class="material-symbols-outlined !hidden dark:!block">light_mode</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-1 w-full max-w-7xl mx-auto p-4 md:p-6 lg:p-8">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <section class="flex-1 space-y-6">
+                    <div class="relative w-full">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400">
+                            <span class="material-symbols-outlined">search</span>
+                        </div>
+                        <input class="form-input-indigo pl-12 pr-12 w-full" placeholder="Search help articles, topics or keywords..." type="text" />
+                        <button class="absolute inset-y-0 right-0 flex items-center px-4 text-slate-400 hover:text-primary">Search</button>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <p class="text-sm text-slate-500">Helpful guides and troubleshooting for users</p>
+                        <div class="flex items-center gap-2">
+                            <a href="#create-ticket" class="px-3 py-2 bg-primary text-white rounded-xl">Create Ticket</a>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <article class="flex flex-col gap-3 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 group">
+                            <div class="flex-1">
+                                <h3 class="text-slate-900 dark:text-white font-bold truncate">Getting Started</h3>
+                                <p class="text-xs text-slate-500 mb-2">Set up your account, profiles and preferences.</p>
+                                <div class="flex items-center justify-between">
+                                    <p class="text-primary font-bold">5 articles</p>
+                                    <a href="#" class="text-slate-400 hover:text-primary">View</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flex flex-col gap-3 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 group">
+                            <div class="flex-1">
+                                <h3 class="text-slate-900 dark:text-white font-bold truncate">Orders & Payments</h3>
+                                <p class="text-xs text-slate-500 mb-2">Track orders, refunds and billing questions.</p>
+                                <div class="flex items-center justify-between">
+                                    <p class="text-primary font-bold">8 articles</p>
+                                    <a href="#" class="text-slate-400 hover:text-primary">View</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flex flex-col gap-3 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 group">
+                            <div class="flex-1">
+                                <h3 class="text-slate-900 dark:text-white font-bold truncate">Account Security</h3>
+                                <p class="text-xs text-slate-500 mb-2">Password, two-factor and access controls.</p>
+                                <div class="flex items-center justify-between">
+                                    <p class="text-primary font-bold">6 articles</p>
+                                    <a href="#" class="text-slate-400 hover:text-primary">View</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <section class="mt-6 bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <h3 class="text-slate-900 dark:text-white font-bold mb-4">Frequently Asked Questions</h3>
+                        <div class="space-y-3">
+                            <details class="p-3 border border-slate-100 dark:border-slate-800 rounded-lg">
+                                <summary class="font-medium">How do I reset my password?</summary>
+                                <p class="mt-2 text-sm text-slate-500">Go to profile settings &gt; Security &gt; Reset password. If you lost access, create a ticket.</p>
+                            </details>
+                            <details class="p-3 border border-slate-100 dark:border-slate-800 rounded-lg">
+                                <summary class="font-medium">Where can I view my invoices?</summary>
+                                <p class="mt-2 text-sm text-slate-500">Invoices are available under Orders &gt; Billing. Download PDFs for record-keeping.</p>
+                            </details>
+                            <details class="p-3 border border-slate-100 dark:border-slate-800 rounded-lg">
+                                <summary class="font-medium">How do I contact support?</summary>
+                                <p class="mt-2 text-sm text-slate-500">Use the contact form or create a ticket below — we'll respond within 24 hours.</p>
+                            </details>
+                        </div>
+                    </section>
+
+                    <section id="create-ticket" class="mt-6 bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <h3 class="text-slate-900 dark:text-white font-bold mb-4">Create a Support Ticket</h3>
+                        <form class="space-y-3">
+                            <div>
+                                <label class="text-sm text-slate-500">Subject</label>
+                                <input class="form-input-indigo w-full mt-1" type="text" placeholder="Brief summary of the issue" />
+                            </div>
+                            <div>
+                                <label class="text-sm text-slate-500">Description</label>
+                                <textarea class="form-input-indigo w-full mt-1 h-28" placeholder="Describe the issue with steps to reproduce..."></textarea>
+                            </div>
+                            <div class="flex items-center justify-end gap-2">
+                                <button type="button" class="bg-slate-500 text-white py-2 px-4 rounded-xl">Cancel</button>
+                                <button type="button" class="bg-primary text-white py-2 px-4 rounded-xl">Send Message</button>
+                            </div>
+                        </form>
+                    </section>
+                </section>
+
+                <aside class="w-full lg:w-80">
+                    <div class="sidebar-sticky space-y-6">
+                        <section class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+                            <h3 class="text-slate-900 dark:text-white font-bold mb-4">Contact Options</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-3">
+                                    <div class="size-10 rounded-lg bg-white dark:bg-slate-800 overflow-hidden border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-primary">email</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900 dark:text-white text-sm">Email Support</h4>
+                                        <p class="text-xs text-slate-500">support@console.example</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="size-10 rounded-lg bg-white dark:bg-slate-800 overflow-hidden border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-primary">forum</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900 dark:text-white text-sm">Community</h4>
+                                        <p class="text-xs text-slate-500">Join the community forum for tips.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="size-10 rounded-lg bg-white dark:bg-slate-800 overflow-hidden border border-slate-200 dark:border-slate-700 flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-primary">chat</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900 dark:text-white text-sm">Live Chat</h4>
+                                        <p class="text-xs text-slate-500">Available Mon–Fri, 9am–6pm.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-slate-100 dark:border-slate-800 mt-4">
+                                <h4 class="font-bold text-slate-900 dark:text-white text-sm mb-2">Support Hours</h4>
+                                <p class="text-sm text-slate-500">Mon–Fri: 09:00 — 18:00</p>
+                                <p class="text-sm text-slate-500">Response time: typically within 24 hours</p>
+                            </div>
+                        </section>
+                        <section class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+                            <h3 class="text-slate-900 dark:text-white font-bold mb-4">Support Agents</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-10 rounded-lg bg-white dark:bg-slate-800 overflow-hidden border border-slate-200 dark:border-slate-700"></div>
+                                        <div>
+                                            <p class="font-medium text-slate-900 dark:text-white">Alyssa R.</p>
+                                            <p class="text-xs text-slate-500">Tier 1 Support</p>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs text-slate-500">Online</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-10 rounded-lg bg-white dark:bg-slate-800 overflow-hidden border border-slate-200 dark:border-slate-700"></div>
+                                        <div>
+                                            <p class="font-medium text-slate-900 dark:text-white">Marcus L.</p>
+                                            <p class="text-xs text-slate-500">Billing</p>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs text-slate-500">Away</span>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </aside>
+            </div>
+        </main>
+
+        <footer class="mt-8 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 text-sm text-slate-500 dark:text-slate-400 py-4">
+            <div class="max-w-7xl mx-auto px-4 md:px-8 text-center">
+                <p>© 2026 Console. All rights reserved. · <a href="#" class="text-indigo-600 hover:underline">Privacy</a> · <a href="#" class="text-indigo-600 hover:underline">Terms</a></p>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

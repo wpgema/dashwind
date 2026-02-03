@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>About - Console</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script src="assets/theme.js"></script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+    <input class="hidden peer" id="sidebar-toggle" type="checkbox" />
+    <label class="overlay fixed inset-0 bg-black/50 z-40 hidden lg:hidden" for="sidebar-toggle"></label>
+    <aside class="fixed inset-y-0 left-0 w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 transition-transform duration-300 -translate-x-full z-50 flex flex-col lg:hidden">
+        <div class="h-16 flex items-center justify-between px-6 border-b border-slate-200 dark:border-slate-800">
+            <div class="flex items-center gap-2">
+                <div class="bg-primary py-1 px-2 rounded-lg">
+                    <span class="material-symbols-outlined text-white text-lg">grid_view</span>
+                </div>
+                <span class="font-bold text-lg tracking-tight">Console</span>
+            </div>
+            <label class="p-2 text-slate-500 cursor-pointer" for="sidebar-toggle">
+                <span class="material-symbols-outlined">close</span>
+            </label>
+        </div>
+        <nav class="flex-1 py-6 space-y-1">
+            <a href="index.html" class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-symbols-outlined">home</span>
+                <span class="font-medium text-sm">Home</span>
+            </a>
+            <a href="about.html" class="flex items-center gap-3 px-6 py-3 text-primary bg-slate-50 dark:bg-slate-800 rounded-lg transition-colors">
+                <span class="material-symbols-outlined">info</span>
+                <span class="font-medium text-sm">About</span>
+            </a>
+            <a href="product-list.html" class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-symbols-outlined">grid_view</span>
+                <span class="font-medium text-sm">Products</span>
+            </a>
+            <a href="service.html" class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-symbols-outlined">design_services</span>
+                <span class="font-medium text-sm">Services</span>
+            </a>
+            <a href="support.html" class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-symbols-outlined">help</span>
+                <span class="font-medium text-sm">Support</span>
+            </a>
+            <a href="contact.html" class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-symbols-outlined">call</span>
+                <span class="font-medium text-sm">Contact</span>
+            </a>
+        </nav>
+    </aside>
+
+    <div class="relative min-h-screen flex flex-col">
+        <header class="sticky top-0 z-50 flex items-center bg-white/80 dark:bg-slate-900/80 backdrop-blur-md p-4 h-16 border-b border-slate-200 dark:border-slate-800">
+            <div class="flex items-center justify-between gap-4 w-full max-w-7xl mx-auto">
+                <div class="flex items-center gap-4">
+                    <label class="lg:hidden text-slate-500 cursor-pointer" for="sidebar-toggle">
+                        <span class="material-symbols-outlined">menu</span>
+                    </label>
+                    <div class="flex items-center gap-2">
+                        <div class="bg-primary py-1.5 px-2.5 rounded-lg">
+                            <span class="material-symbols-outlined text-white text-xl">info</span>
+                        </div>
+                        <h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">About</h2>
+                    </div>
+                </div>
+                <nav class="hidden lg:block gap-2 ml-auto mr-4">
+                    <div class="flex items-center gap-2">
+                        <a href="index.html" class="flex items-center gap-2 px-3 py-2 text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">home</span>
+                            <span>Home</span>
+                        </a>
+                        <a href="about.html" class="flex items-center gap-2 px-3 py-2 text-sm font-bold text-primary rounded-lg bg-slate-50 dark:bg-slate-800 transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">info</span>
+                            <span>About</span>
+                        </a>
+                        <a href="product-list.html" class="flex items-center gap-2 px-3 py-2 text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">grid_view</span>
+                            <span>Products</span>
+                        </a>
+                        <a href="service.html" class="flex items-center gap-2 px-3 py-2 text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">design_services</span>
+                            <span>Services</span>
+                        </a>
+                        <a href="support.html" class="flex items-center gap-2 px-3 py-2 text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">help</span>
+                            <span>Support</span>
+                        </a>
+                        <a href="contact.html" class="flex items-center gap-2 px-3 py-2 text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">call</span>
+                            <span>Contact</span>
+                        </a>
+                    </div>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <button class="p-2 text-slate-500 hover:text-indigo-600 transition-colors" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
+                        <span class="material-symbols-outlined !block dark:!hidden">dark_mode</span>
+                        <span class="material-symbols-outlined !hidden dark:!block">light_mode</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-1 w-full max-w-7xl mx-auto p-4 md:p-6 lg:p-8">
+            <div class="space-y-8">
+                <section class="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <div class="flex flex-col lg:flex-row items-center gap-6">
+                        <div class="flex-1">
+                            <h1 class="text-2xl font-bold text-slate-900 dark:text-white">About Console</h1>
+                            <p class="mt-2 text-sm text-slate-500">Console is a lightweight admin UI built to help teams manage products, orders, and customers with speed and clarity.</p>
+                            <div class="mt-4 flex items-center gap-3">
+                                <a href="contact.html" class="px-4 py-2 bg-primary text-white rounded-xl">Contact Sales</a>
+                                <a href="support.html" class="px-4 py-2 border border-slate-200 dark:border-slate-800 rounded-xl">Support Center</a>
+                            </div>
+                        </div>
+                        <div class="w-48 h-32 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center justify-center border border-slate-200 dark:border-slate-700">
+                            <span class="material-symbols-outlined text-4xl text-primary">dashboard</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <article class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800">
+                        <h3 class="font-bold text-slate-900 dark:text-white">Our Mission</h3>
+                        <p class="text-sm text-slate-500 mt-2">Deliver a delightful, performant admin experience so teams can focus on customers and growth.</p>
+                    </article>
+                    <article class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800">
+                        <h3 class="font-bold text-slate-900 dark:text-white">Our Vision</h3>
+                        <p class="text-sm text-slate-500 mt-2">Be the control center for modern commerce — simple, extensible, and accessible.</p>
+                    </article>
+                    <article class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800">
+                        <h3 class="font-bold text-slate-900 dark:text-white">Core Values</h3>
+                        <ul class="text-sm text-slate-500 mt-2 space-y-1">
+                            <li>Design for clarity</li>
+                            <li>Place users first</li>
+                            <li>Continuous improvement</li>
+                        </ul>
+                    </article>
+                </section>
+
+                <section class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800">
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4">Meet the team</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="p-4 rounded-lg border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 text-center">
+                            <div class="w-16 h-16 bg-slate-100 dark:bg-slate-800 rounded-full mx-auto mb-2"></div>
+                            <p class="font-medium text-slate-900 dark:text-white">Alyssa R.</p>
+                            <p class="text-xs text-slate-500">Founder</p>
+                        </div>
+                        <div class="p-4 rounded-lg border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 text-center">
+                            <div class="w-16 h-16 bg-slate-100 dark:bg-slate-800 rounded-full mx-auto mb-2"></div>
+                            <p class="font-medium text-slate-900 dark:text-white">Marcus L.</p>
+                            <p class="text-xs text-slate-500">Head of Product</p>
+                        </div>
+                        <div class="p-4 rounded-lg border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 text-center">
+                            <div class="w-16 h-16 bg-slate-100 dark:bg-slate-800 rounded-full mx-auto mb-2"></div>
+                            <p class="font-medium text-slate-900 dark:text-white">Jenny C.</p>
+                            <p class="text-xs text-slate-500">Engineering</p>
+                        </div>
+                        <div class="p-4 rounded-lg border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 text-center">
+                            <div class="w-16 h-16 bg-slate-100 dark:bg-slate-800 rounded-full mx-auto mb-2"></div>
+                            <p class="font-medium text-slate-900 dark:text-white">Rahul P.</p>
+                            <p class="text-xs text-slate-500">Design</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer class="mt-8 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 text-sm text-slate-500 dark:text-slate-400 py-4">
+            <div class="max-w-7xl mx-auto px-4 md:px-8 text-center">
+                <p>© 2026 Console. All rights reserved. · <a href="#" class="text-indigo-600 hover:underline">Privacy</a> · <a href="#" class="text-indigo-600 hover:underline">Terms</a></p>
+                <div class="mt-2 flex items-center justify-center gap-4">
+                    <a href="https://twitter.com/" target="_blank" class="text-slate-500 hover:text-primary">Twitter</a>
+                    <a href="https://facebook.com/" target="_blank" class="text-slate-500 hover:text-primary">Facebook</a>
+                    <a href="https://instagram.com/" target="_blank" class="text-slate-500 hover:text-primary">Instagram</a>
+                    <a href="https://linkedin.com/" target="_blank" class="text-slate-500 hover:text-primary">LinkedIn</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

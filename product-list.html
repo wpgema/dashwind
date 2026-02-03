@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Create New Order - Unified View</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    
+    <!-- Theme handling moved to assets/theme.js -->
+    <script src="assets/theme.js"></script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+    <input class="hidden peer" id="sidebar-toggle" type="checkbox" />
+    <label class="overlay fixed inset-0 bg-black/50 z-40 hidden lg:hidden" for="sidebar-toggle"></label>
+    <aside class="fixed inset-y-0 left-0 w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 transition-transform duration-300 -translate-x-full z-50 flex flex-col lg:hidden">
+        <div class="h-16 flex items-center justify-between px-6 border-b border-slate-200 dark:border-slate-800">
+            <div class="flex items-center gap-2">
+                <div class="bg-primary py-1 px-2 rounded-lg">
+                    <span class="material-symbols-outlined text-white text-lg">shopping_cart_checkout</span>
+                </div>
+                <span class="font-bold text-lg tracking-tight">Console</span>
+            </div>
+            <label class="p-2 text-slate-500 cursor-pointer" for="sidebar-toggle">
+                <span class="material-symbols-outlined">close</span>
+            </label>
+        </div>
+        <nav class="flex-1 py-6 space-y-1">
+            <a href="index.html" class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-symbols-outlined">home</span>
+                <span class="font-medium text-sm">Home</span>
+            </a>
+            <a href="about.html" class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-symbols-outlined">info</span>
+                <span class="font-medium text-sm">About</span>
+            </a>
+            <a href="product-list.html" class="flex items-center gap-3 px-6 py-3 text-primary bg-slate-50 dark:bg-slate-800 rounded-lg transition-colors">
+                <span class="material-symbols-outlined">grid_view</span>
+                <span class="font-medium text-sm">Products</span>
+            </a>
+            <a href="service.html" class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-symbols-outlined">design_services</span>
+                <span class="font-medium text-sm">Services</span>
+            </a>
+            <a href="support.html" class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-symbols-outlined">support_agent</span>
+                <span class="font-medium text-sm">Support</span>
+            </a>
+            <a href="contact.html" class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-symbols-outlined">mail</span>
+                <span class="font-medium text-sm">Contact</span>
+            </a>
+        </nav>
+    </aside>
+    <div class="relative min-h-screen flex flex-col">
+        <header class="sticky top-0 z-50 flex items-center bg-white/80 dark:bg-slate-900/80 backdrop-blur-md p-4 h-16 border-b border-slate-200 dark:border-slate-800">
+            <div class="flex items-center justify-between gap-4 w-full max-w-7xl mx-auto">
+                <div class="flex items-center gap-4">
+                    <label class="lg:hidden text-slate-500 cursor-pointer" for="sidebar-toggle">
+                        <span class="material-symbols-outlined">menu</span>
+                    </label>
+                    <div class="flex items-center gap-2">
+                        <div class="bg-primary py-1.5 px-2.5 rounded-lg">
+                            <span class="material-symbols-outlined text-white text-xl">grid_view</span>
+                        </div>
+                        <h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">Products</h2>
+                    </div>
+                </div>
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:block gap-2 ml-auto mr-4">
+                    <div class="flex items-center gap-2">
+                        <a href="index.html" class="flex items-center gap-2 px-3 py-2 text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">home</span>
+                            <span>Home</span>
+                        </a>
+                        <a href="about.html" class="flex items-center gap-2 px-3 py-2 text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">info</span>
+                            <span>About</span>
+                        </a>
+                        <a href="product-list.html" class="flex items-center gap-2 px-3 py-2 text-sm font-bold text-primary rounded-lg bg-slate-50 dark:bg-slate-800 transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">grid_view</span>
+                            <span>Products</span>
+                        </a>
+                        <a href="service.html" class="flex items-center gap-2 px-3 py-2 text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">design_services</span>
+                            <span>Services</span>
+                        </a>
+                        <a href="support.html" class="flex items-center gap-2 px-3 py-2 text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">support_agent</span>
+                            <span>Support</span>
+                        </a>
+                        <a href="contact.html" class="flex items-center gap-2 px-3 py-2 text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">mail</span>
+                            <span>Contact</span>
+                        </a>
+                    </div>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <button class="p-2 text-slate-500 hover:text-indigo-600 transition-colors" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
+                        <span class="material-symbols-outlined !block dark:!hidden">dark_mode</span>
+                        <span class="material-symbols-outlined !hidden dark:!block">light_mode</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <main class="flex-1 w-full max-w-7xl mx-auto p-4 md:p-6 lg:p-8">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <section class="flex-1 space-y-6">
+                    <div class="relative w-full">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400">
+                            <span class="material-symbols-outlined">search</span>
+                        </div>
+                        <input class="form-input-indigo pl-12 pr-12 w-full" placeholder="Search products, categories or SKU..." type="text" />
+                        <button class="absolute inset-y-0 right-0 flex items-center px-4 text-slate-400 hover:text-primary">Search</button>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <p class="text-sm text-slate-500">Total products: <span class="font-bold text-slate-900 dark:text-white">1,248</span></p>
+                        <p class="text-sm text-slate-500">Showing 1–6</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Product Card (repeat) -->
+                        <article class="flex flex-col gap-3 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 group">
+                            <div class="size-36 rounded-xl bg-white dark:bg-slate-800 overflow-hidden flex items-center justify-center border border-slate-200 dark:border-slate-700">
+                                <img alt="Classic Watch" class="object-cover w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_WlMH41UPlG43m0GjfN5tRJT8lLI6tHh5XqH4Qka5n3JDKtu_zoAloe5V4F19rcKr7u4rSUEkRg2BvjBVV2bksmMIA0-9TNuI6bQxMgMucppu0UOssHRQyjW5c5rnADowAm2WMNPFI7RUVRj3iRLEFv6CGpYMwrN4XB69rlX7mEMr95nckhGlaEw-Lp1hJ30VMKNOd2KnTlVwowmboRLEuz2Gn5dga7Yr2jsoA8Xe2aVFKEaasEFWvF4oVgIem9OV6ijHQu-AqQ4" />
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-slate-900 dark:text-white font-bold truncate">Classic Watch</h3>
+                                <p class="text-xs text-slate-500 mb-2">SKU: CW-001 • 12 in stock</p>
+                                <div class="flex items-center justify-between">
+                                    <p class="text-primary font-bold">$120.00</p>
+                                    <button class="bg-primary text-white size-10 rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 hover:scale-105 transition-transform active:scale-95">
+                                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flex flex-col gap-3 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 group">
+                            <div class="size-36 rounded-xl bg-white dark:bg-slate-800 overflow-hidden flex items-center justify-center border border-slate-200 dark:border-slate-700">
+                                <img alt="Sneakers" class="object-cover w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvzYoTCACWiDRyJAe6IxCjPljIq25TDY1GH0W84jQO4EDEa5w1PKT1-iJal--2JBV99igtRwA_eXwCHxEYnlFkE8gPC94wXKCDkR1kHau14I3jTmWs2twJr2xToTkVnAR14fypejiHM2EOo4lFd3wL6THCqqjzGUlxpq39IFgOnpzYTCgZ-V_xOW1OcQvUK27ifz8VFLZ2G7Zu-9mijYgTTtZPKKvVt0FJepTBS8wAJnVf-CYH1q9h3Sgu0QQwC8g2PUkTQUFqQ9A" />
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-slate-900 dark:text-white font-bold truncate">Sports Sneakers</h3>
+                                <p class="text-xs text-slate-500 mb-2">SKU: SN-099 • 4 in stock</p>
+                                <div class="flex items-center justify-between">
+                                    <p class="text-primary font-bold">$89.00</p>
+                                    <button class="bg-primary text-white size-10 rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 hover:scale-105 transition-transform active:scale-95">
+                                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- More product cards can be added similarly -->
+                    </div>
+
+                    <div class="flex items-center justify-between mt-6">
+                        <p class="text-sm text-slate-500">Showing 1–6 of 1,248 results</p>
+                        <div class="flex items-center gap-2">
+                            <button class="px-3 py-1 rounded border border-slate-200 dark:border-slate-800">Prev</button>
+                            <button class="px-3 py-1 rounded border border-slate-200 dark:border-slate-800">Next</button>
+                        </div>
+                    </div>
+                </section>
+
+                <aside class="w-full lg:w-80">
+                    <div class="sidebar-sticky space-y-6">
+                        <section class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+                            <h3 class="text-slate-900 dark:text-white font-bold mb-4">Your Cart</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start justify-between">
+                                    <div class="flex gap-3">
+                                        <div class="size-10 rounded-lg bg-white dark:bg-slate-800 overflow-hidden border border-slate-200 dark:border-slate-700">
+                                            <img alt="Backpack" class="object-cover w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZlohK7z8dVQ_MWvrzbFlHGRMzT7ZyT4TC8hbJuA7IvZVVkW8c4P8Mer1dPaOcmPoyC7KDntHt6cMQpu4G-748x-gTOpZqu2XJeem8qaLk9_PUMLG_d90FKyvn5pVVrqAFZ_2uZxBVhJjggWgIUyL-nE52YPm49FmLQDzBqC2VB8mWUsOummBOxU3PjYgufeJh8Q8_A9Lbr9A4ZYpSr3UmC-B_LFGklg6qUF20zlvP6jzzEYgn0A4XrSWXuSw7V7-9zfatQ3-Gwjg" />
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-slate-900 dark:text-white text-sm">Leather Backpack</h4>
+                                            <p class="text-[10px] uppercase tracking-wider text-slate-500 font-bold">$85.00 / unit</p>
+                                        </div>
+                                    </div>
+                                    <p class="font-bold text-slate-900 dark:text-white">$85.00</p>
+                                </div>
+                                <div class="flex items-start justify-between">
+                                    <div class="flex gap-3">
+                                        <div class="size-10 rounded-lg bg-white dark:bg-slate-800 overflow-hidden border border-slate-200 dark:border-slate-700">
+                                            <img alt="Headphones" class="object-cover w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkce-UJ1VPofzEqRLbnU9fdJPlZi96vfQ6nzcX72ue78OmDrhhme3TZGgnxO-yukBavOPTEwy4Uwz5b_MZwvyhzkpAY3LaW2LqP1Zg2K-8g4Lrf7vpciW38w0gVeFNfaSzalezhHvDSK5ucgwOhDCcCqnqvlbd0ipYPSL0qKAm_BLtXaGRt8JtK3TvNr2o484BMv8mfah3GKAFyK2Vejku2-nXk_rD5qcqzmdSRjHQb8Dv_V4ruDAPf44ss5olmQH0q8HANGLcxyo" />
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-slate-900 dark:text-white text-sm">Wireless Headphones</h4>
+                                            <p class="text-[10px] uppercase tracking-wider text-slate-500 font-bold">$210.00 / unit</p>
+                                        </div>
+                                    </div>
+                                    <p class="font-bold text-slate-900 dark:text-white">$420.00</p>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-slate-100 dark:border-slate-800 mt-4">
+                                <div class="flex justify-between text-slate-500 text-sm mb-2">
+                                    <span>Subtotal</span>
+                                    <span class="font-medium text-slate-900 dark:text-white">$505.00</span>
+                                </div>
+                                <button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 px-4 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+                                    <span class="material-symbols-outlined">shopping_cart_checkout</span>
+                                    <span>Checkout</span>
+                                </button>
+                            </div>
+                        </section>
+                    </div>
+                </aside>
+            </div>
+        </main>
+        <!-- Site footer -->
+        <footer class="mt-8 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 text-sm text-slate-500 dark:text-slate-400 py-4">
+            <div class="max-w-7xl mx-auto px-4 md:px-8 text-center">
+                <p>© 2026 Console. All rights reserved. · <a href="#" class="text-indigo-600 hover:underline">Privacy</a> · <a href="#" class="text-indigo-600 hover:underline">Terms</a></p>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
