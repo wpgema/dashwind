@@ -1,44 +1,82 @@
 # Dashwind
 
-Modern, responsive admin dashboard template built with HTML5 and Tailwind CSS.
+Template admin modern dan responsif, dibangun dengan HTML5 dan Tailwind CSS.
 
-**Light Theme**
-![Dashwind Preview](assets/images/dashboard-light.png)
+![Dashwind Light Preview](assets/images/dashboard-light.png)
 
-**Dark Theme**
-![Dashwind Preview](assets/images/dashboard-dark.png)
+![Dashwind Dark Preview](assets/images/dashboard-dark.png)
 
-## Features
+## Fitur
 
-- 📱 **Fully Responsive**: Adapts seamlessy from mobile to desktop screens.
-- 🌙 **Dark Mode Ready**: Built-in support for dark mode styling.
-- ⚡ **Tailwind CSS**: Styled using utility-first CSS classes (via CDN).
-- 🎨 **Modern Design**: Clean interface with Inter font and Material Symbols.
-- 📊 **Visualizations**: Pure CSS/SVG charts and metric cards.
+- 📱 **Responsif**: Tampilan adaptif dari mobile sampai desktop.
+- 🌙 **Dark Mode**: Dukungan tema gelap bawaan.
+- ⚡ **Tailwind CSS**: Menggunakan utility-first CSS (via CDN untuk kemudahan).
+- 🎨 **Desain Modern**: Menggunakan font Inter dan Material Symbols.
+- 📊 **Visualisasi**: Kartu metrik dan grafik sederhana menggunakan CSS/SVG.
 
-## Getting Started
+## Cara Instalasi & Penggunaan
 
-Since this project uses Tailwind CSS via CDN for development simplicity, you can run it directly without a build step.
+Dashwind didesain agar mudah dipakai tanpa langkah build, tapi ada juga cara untuk menjalankan lokal dengan server statis atau membangun ulang stylesheet Tailwind jika ingin kustom.
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/wpgema/dashwind.git
-   ```
-2. Open `index.html` in your web browser.
+Pilihan cepat (tanpa instalasi):
 
-## Technologies
+1. Salin atau unduh repository.
+2. Buka file `index.html` secara langsung di browser (double-click).
+
+Catatan: beberapa fitur (mis. pemanggilan asset via fetch atau path relatif) bekerja lebih andal ketika dijalankan lewat server lokal.
+
+Menjalankan dengan server lokal (direkomendasikan):
+
+- Menggunakan Live Server (VS Code extension): instal ekstensi "Live Server" lalu klik "Go Live".
+- Menggunakan Python (tersedia di Windows jika Python terpasang):
+
+```powershell
+cd path\ke\dashwind
+python -m http.server 8000
+# buka http://localhost:8000 di browser
+```
+
+- Menggunakan Node (tanpa instal global):
+
+```powershell
+cd path\ke\dashwind
+npx http-server -p 8080
+# buka http://localhost:8080 di browser
+```
+
+Opsi pembangunan Tailwind (opsional — untuk kustomisasi CSS):
+
+Jika Anda ingin mengedit `assets/input.css` dan membangun ulang `assets/styles.css` menggunakan Tailwind CLI:
+
+```powershell
+cd path\ke\dashwind
+npm init -y
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss -i ./assets/input.css -o ./assets/styles.css --watch
+```
+
+File yang perlu diketahui:
+
+- `index.html` — halaman dashboard utama.
+- `assets/input.css` — file sumber Tailwind (jika Anda melakukan build sendiri).
+- `assets/styles.css` — stylesheet yang dibundel dan dipakai di halaman.
+- `tailwind.config.js` — konfigurasi Tailwind (sudah ada di repo).
+
+Contoh penggunaan singkat:
+
+- Buka [index.html](index.html) untuk melihat dashboard.
+- Halaman lain seperti `product.html`, `order-management.html`, dan `setting.html` tersedia sebagai contoh layout.
+
+## Teknologi
 
 - HTML5
-- [Tailwind CSS](https://tailwindcss.com/) (Script Version)
-- [Google Fonts](https://fonts.google.com/) (Inter)
-- [Material Symbols](https://fonts.google.com/icons)
+- Tailwind CSS (versi CDN atau CLI untuk build)
+- Google Fonts (Inter)
 
-## License
+## Lisensi
 
-This project is licensed under the MIT License - see the [license](license) file for details.
+Proyek ini berlisensi MIT — lihat file `LICENSE` untuk detail.
 
-## Author
+## Penulis
 
-**M. Gema Maulana**
-
-Web Developer
+**M. Gema Maulana** — Web Developer
